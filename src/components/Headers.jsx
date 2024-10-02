@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
 
 export default function Headers() {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation(); // Get the current location
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -21,25 +22,25 @@ export default function Headers() {
                 {/* Navigation Links */}
                 <ul className={`flex gap-5 pr-6 ${isOpen ? 'flex-col absolute bg-gray-50 w-full left-0 top-full border-t border-gray-200 sm:hidden' : 'hidden sm:flex'}`}>
                     <Link to={'/'}>
-                        <li className="text-slate-700 hover:underline">Home</li>
+                        <li className={`text-slate-700 hover:underline ${location.pathname === '/' ? 'font-bold text-yellow-500' : ''}`}>Home</li>
                     </Link>
                     <Link to={'/about'}>
-                        <li className="text-slate-700 hover:underline">About Us</li>
+                        <li className={`text-slate-700 hover:underline ${location.pathname === '/about' ? 'font-bold text-yellow-500' : ''}`}>About Us</li>
                     </Link>
                     <Link to={'/services'}>
-                        <li className="text-slate-700 hover:underline">Services</li>
+                        <li className={`text-slate-700 hover:underline ${location.pathname === '/services' ? 'font-bold text-yellow-500' : ''}`}>Services</li>
                     </Link>
                     <Link to={'/projects'}>
-                        <li className="text-slate-700 hover:underline">Projects</li>
+                        <li className={`text-slate-700 hover:underline ${location.pathname === '/projects' ? 'font-bold text-yellow-500' : ''}`}>Projects</li>
                     </Link>
                 </ul>
 
                 {/* Get Quote Button */}
                 <Link>
-                    <button className="relative overflow-hidden bg-yellow-500 text-white font-semibold py-1 px-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+                    <button className="relative overflow-hidden bg-yellow-500 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
                         {/* Button Text */}
                         <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                            Get Quote
+                            Contact Us
                         </span>
 
                         {/* Arrow with circular background */}
@@ -48,8 +49,9 @@ export default function Headers() {
                         </span>
 
                         {/* Expanding circular background from the arrow */}
-                        <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10]"></span>
+                        <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-300 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
                     </button>
+
                 </Link>
 
                 {/* Hamburger Menu Icon for Small Screens */}
@@ -63,10 +65,10 @@ export default function Headers() {
             {/* Responsive menu */}
             {isOpen && (
                 <div className="flex flex-col bg-gray-50 border-t border-gray-200 sm:hidden">
-                    <Link to={'/'} className="p-3 text-slate-700 hover:underline">Home</Link>
-                    <Link to={'/about'} className="p-3 text-slate-700 hover:underline">About Us</Link>
-                    <Link to={'/services'} className="p-3 text-slate-700 hover:underline">Services</Link>
-                    <Link to={'/projects'} className="p-3 text-slate-700 hover:underline">Projects</Link>
+                    <Link to={'/'} className={`p-3 text-slate-700 hover:underline ${location.pathname === '/' ? 'font-bold text-yellow-500' : ''}`}>Home</Link>
+                    <Link to={'/about'} className={`p-3 text-slate-700 hover:underline ${location.pathname === '/about' ? 'font-bold text-yellow-500' : ''}`}>About Us</Link>
+                    <Link to={'/services'} className={`p-3 text-slate-700 hover:underline ${location.pathname === '/services' ? 'font-bold text-yellow-500' : ''}`}>Services</Link>
+                    <Link to={'/projects'} className={`p-3 text-slate-700 hover:underline ${location.pathname === '/projects' ? 'font-bold text-yellow-500' : ''}`}>Projects</Link>
                 </div>
             )}
         </header>
