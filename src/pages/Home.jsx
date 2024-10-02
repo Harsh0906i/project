@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
-import image_1 from "../public/Group_1171278049.png";
+import image_1 from "../assets/Group_1171278049.png";
 
 export default function Home() {
   return (
