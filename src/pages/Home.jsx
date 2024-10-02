@@ -12,7 +12,7 @@ export default function Home() {
 
       {/* Text container positioned at the bottom for small screens */}
       <div className='flex flex-col justify-end sm:absolute sm:top-0 sm:w-full sm:justify-start'>
-        <h1 className='font-bold sm:text-4xl text-xl px-9 py-9 sm:relative absolute top-0 sm:top-0'>
+        <h1 className='font-bold sm:text-4xl text-xl sm:px-9 sm:py-9 py-9 pl-3 sm:relative absolute top-0 sm:top-0'>
           <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
         </h1>
         <div>
