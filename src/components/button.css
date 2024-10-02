@@ -1,0 +1,21 @@
+@keyframes expandCircle {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 300%;
+      height: 300%;
+      opacity: 1;
+    }
+  }
+  
+  .group-hover\:animate-expand-circle {
+    animation: expandCircle 0.5s forwards ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+  }
+  
