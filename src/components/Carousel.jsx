@@ -68,17 +68,6 @@ const services = [
       "Electrical Maintenance and Troubleshooting",
     ],
   },
-  {
-    title: "Industrial Electrical Services",
-    description:
-      "Our team handles large-scale industrial electrical projects with precision and compliance with safety standards.",
-    features: [
-      "Heavy-Duty Electrical Installations",
-      "Power Distribution Systems",
-      "Machinery and Equipment Wiring",
-      "Electrical Maintenance and Troubleshooting",
-    ],
-  },
 ];
 
 const Carousel = () => {
@@ -105,16 +94,16 @@ const Carousel = () => {
           </p>
 
           {/* Button container for arrows */}
-          <div className="flex justify-center items-center mt-4 sm:mt-0">
+          <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-4 sm:mr-0 sm:justify-end sm:flex-row sm:gap-2">
             <button
               onClick={scrollLeft}
-              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-2"
+              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
             >
               <FaArrowLeft /> {/* Left Arrow */}
             </button>
             <button
               onClick={scrollRight}
-              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-2"
+              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
             >
               <FaArrowRight /> {/* Right Arrow */}
             </button>
