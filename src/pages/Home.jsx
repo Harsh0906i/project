@@ -4,9 +4,15 @@ import image_1 from "../assets/Group_1171278049.png";
 import Carousel from "../components/Carousel"
 
 export default function Home() {
+  const texts = [
+    "Welcome to our website!",
+    "We provide top-notch services.",
+    "Contact us for more information.",
+    "Your satisfaction is our priority.",
+  ];
   return (
     <>
-      <div className='flex flex-col relative sm:flex-row'>
+      <div className='flex flex-col relative sm:flex-row mb-5'>
         {/* Centering the image */}
         <div className='flex flex-grow items-center justify-center w-full'>
           <img src={image_1} className='w-full h-auto' alt="" />
@@ -42,8 +48,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <h1 className="text-center text-2xl font-bold my-5">Text Carousel</h1>
-      {/* <Carousel/> */}
+      <Carousel texts={texts} />
     </>
 
   );
