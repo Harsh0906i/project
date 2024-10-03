@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../assets/Logo.jpeg"
 
 export default function Headers() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,8 @@ export default function Headers() {
         <header className="bg-gray-50 shadow-lg">
             <div className="flex items-center max-w-6xl mx-auto p-3 justify-between">
                 <Link to={'/'} className="font-semibold flex flex-col items-center">
-                    <span className="text-sm capitalize">Logo</span>
+                    {/* <span className="text-sm capitalize">Logo</span> */}
+                    <img src={Logo} className=' sm:h-14 h-11' alt="Logo"  />
                 </Link>
 
                 <div className="flex-grow" /> {/* This creates space */}
