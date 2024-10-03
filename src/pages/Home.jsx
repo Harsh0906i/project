@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className='font-bold sm:text-4xl text-xl sm:px-9 sm:py-9 py-9 pl-3 sm:relative absolute top-0 sm:top-0'>
             <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
           </h1>
-          <div className='sm:w-[50%] px-7'>
+          <div className='sm:w-[50%] px-9 pb-4'>
             <h3 className=' sm:text-lg'>
               Providing top-tier electrical services for residential, commercial and
               industrial clients in Mumbai. Let us power your spaces with precision and trust.
