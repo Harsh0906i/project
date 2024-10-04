@@ -100,14 +100,40 @@ const image = [
 
 export default function Home() {
 
-  const carouselRef = useRef(null);
+  // const carouselRef = useRef(null);
+  const carouselRef1 = useRef(null);
+  const carouselRef2 = useRef(null);
+  const carouselRef3 = useRef(null);
+  const carouselRef4 = useRef(null);
+
 
   const scrollLeft = () => {
-    carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    carouselRef1.current.scrollBy({ left: -300, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    carouselRef1.current.scrollBy({ left: 300, behavior: "smooth" });
+  };
+  const scrollLeft2 = () => {
+    carouselRef2.current.scrollBy({ left: -300, behavior: "smooth" });
+  };
+
+  const scrollRight2 = () => {
+    carouselRef2.current.scrollBy({ left: 300, behavior: "smooth" });
+  };
+  const scrollLeft3 = () => {
+    carouselRef3.current.scrollBy({ left: -300, behavior: "smooth" });
+  };
+
+  const scrollRight3 = () => {
+    carouselRef3.current.scrollBy({ left: 300, behavior: "smooth" });
+  };
+  const scrollLeft4 = () => {
+    carouselRef4.current.scrollBy({ left: -300, behavior: "smooth" });
+  };
+
+  const scrollRight4 = () => {
+    carouselRef4.current.scrollBy({ left: 300, behavior: "smooth" });
   };
   return (
     <>
@@ -197,13 +223,13 @@ export default function Home() {
             {/* Button container for arrows */}
             <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
-                onClick={scrollLeft}
+                onClick={scrollLeft2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowLeft /> {/* Left Arrow */}
               </button>
               <button
-                onClick={scrollRight}
+                onClick={scrollRight2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowRight /> {/* Right Arrow */}
@@ -214,7 +240,7 @@ export default function Home() {
 
         <div className="relative flex items-center justify-center py-8">
           <div
-            ref={carouselRef}
+            ref={carouselRef2}
             className="flex overflow-x-auto no-scrollbar space-x-6"
           >
             {services.map((service, index) => (
@@ -245,7 +271,7 @@ export default function Home() {
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
             <div className=" flex flex-col flex-1 items-center justify-center">
-              <h1 className="font-bold text-lg md:text-xl w-full">Working Process</h1>
+              <h1 className="font-bold text-lg md:text-xl w-full text-center">Working Process</h1>
               <h1 className="font-bold text-2xl md:text-3xl mt-2">Follow Great Process</h1>
               <p className="mt-4 text-sm md:text-md pb-6">
                 our team of experts is equipped to assist you with variety of pipe repair needs. Please share your email address to connect with us.
@@ -269,13 +295,13 @@ export default function Home() {
             {/* Button container for arrows */}
             <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-4 sm:mr-0 sm:justify-end sm:flex-row sm:gap-2">
               <button
-                onClick={scrollLeft}
+                onClick={scrollLeft3}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowLeft /> {/* Left Arrow */}
               </button>
               <button
-                onClick={scrollRight}
+                onClick={scrollRight3}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowRight /> {/* Right Arrow */}
@@ -286,7 +312,7 @@ export default function Home() {
 
         <div className="relative flex items-center justify-center py-8">
           <div
-            ref={carouselRef}
+            ref={carouselRef3}
             className="flex overflow-x-auto no-scrollbar space-x-6"
           >
             {beforeAfter.map((item, index) => (
@@ -414,7 +440,7 @@ export default function Home() {
 
         <div className="relative flex items-center justify-center py-8">
           <div
-            ref={carouselRef}
+            ref={carouselRef1}
             className="flex overflow-x-auto no-scrollbar space-x-6"
           >
             {image.map((service, index) => (

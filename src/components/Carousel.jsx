@@ -74,10 +74,12 @@ const Carousel = () => {
   const carouselRef = useRef(null);
 
   const scrollLeft = () => {
+    console.log('1')
     carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
   };
 
   const scrollRight = () => {
+    console.log('1')
     carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
   };
 
