@@ -184,59 +184,59 @@ export default function Home() {
       </div>
 
       <div>
-  <div className='sm:flex justify-center items-center flex-col'>
-    <h4 className="text-center text-yellow-600 text-lg font-semibold my-5">Our Projects</h4>
-    <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Recent Work</h1>
+        <div className='sm:flex justify-center items-center flex-col'>
+          <h4 className="text-center text-yellow-600 text-lg font-semibold my-5">Our Projects</h4>
+          <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Recent Work</h1>
 
-    {/* Flex container for paragraph and buttons */}
-    <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
-      <p className='sm:p-7 py-4 sm:text-md pl-5'>
-        Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
-      </p>
+          {/* Flex container for paragraph and buttons */}
+          <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
+            <p className='sm:p-7 py-4 sm:text-md pl-5'>
+              Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
+            </p>
 
-      {/* Button container for arrows */}
-      <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
-        <button
-          onClick={scrollLeft}
-          className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
-        >
-          <FaArrowLeft /> {/* Left Arrow */}
-        </button>
-        <button
-          onClick={scrollRight}
-          className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
-        >
-          <FaArrowRight /> {/* Right Arrow */}
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div className="relative flex items-center justify-center py-8">
-    <div
-      ref={carouselRef}
-      className="flex overflow-x-auto no-scrollbar space-x-6"
-    >
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="sm:max-w-[45%] w-[100%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
-        >
-          <div className='relative'>
-            <img src={service.img} alt="Image" />
+            {/* Button container for arrows */}
+            <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+              <button
+                onClick={scrollLeft}
+                className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
+              >
+                <FaArrowLeft /> {/* Left Arrow */}
+              </button>
+              <button
+                onClick={scrollRight}
+                className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
+              >
+                <FaArrowRight /> {/* Right Arrow */}
+              </button>
+            </div>
           </div>
-          <div className='absolute text-white bottom-8 m-3 px-3'>
-            <h1 className=' sm:text-2xl'>heading</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp</p>
-          </div>
-          <p className='text-white absolute sm:right-4 sm:top-4 right-2 top-2 bg-yellow-600 rounded-full sm:p-4 p-3'>
-            <GoArrowUpRight />
-          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
+
+        <div className="relative flex items-center justify-center py-8">
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto no-scrollbar space-x-6"
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="sm:max-w-[45%] w-[100%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
+              >
+                <div className='relative'>
+                  <img src={service.img} alt="Image" />
+                </div>
+                <div className='absolute text-white bottom-8 m-3 px-3'>
+                  <h1 className=' sm:text-2xl'>heading</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp</p>
+                </div>
+                <p className='text-white absolute sm:right-4 sm:top-4 right-2 top-2 bg-yellow-600 rounded-full sm:p-4 p-3'>
+                  <GoArrowUpRight />
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
 
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
@@ -245,7 +245,7 @@ export default function Home() {
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
             <div className=" flex flex-col flex-1 items-center justify-center">
-              <h1 className="font-bold text-lg md:text-xl">Working Process</h1>
+              <h1 className="font-bold text-lg md:text-xl w-full">Working Process</h1>
               <h1 className="font-bold text-2xl md:text-3xl mt-2">Follow Great Process</h1>
               <p className="mt-4 text-sm md:text-md pb-6">
                 our team of experts is equipped to assist you with variety of pipe repair needs. Please share your email address to connect with us.
