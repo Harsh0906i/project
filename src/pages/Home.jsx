@@ -224,7 +224,7 @@ export default function Home() {
               </div>
             </div>
             {/* Button container for arrows */}
-            <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+            <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
                 onClick={scrollLeft2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
@@ -313,7 +313,7 @@ export default function Home() {
 
             </div>
             {/* Button container for arrows */}
-            <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+            <div className="flex absolute right-9 sm:bottom-0  justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
                 onClick={scrollLeft3}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
@@ -340,7 +340,7 @@ export default function Home() {
               index % 2 === 0 && (
                 <div
                   key={index}
-                  className="sm:max-w-[45%] w-[100%] m-2 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400"
+                  className="sm:max-w-[45%] w-[100%] border m-2 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-200"
                   style={{ "border-radius": "10px" }}
                 >
                   <div className='relative flex items-center'>

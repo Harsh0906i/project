@@ -101,7 +101,7 @@ const Carousel = () => {
             </h4>
           </div>
           <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Electrical Services</h1>
-          <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
+          <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between m-2'>
             <div className=' w-full'>
               <p className='sm:p-7 m-2 text-center py-4 sm:text-md '>
                 Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
@@ -110,7 +110,7 @@ const Carousel = () => {
             </div>
           </div>
           {/* Button container for arrows */}
-          <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+          <div className="flex absolute right-9 bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
             <button
               onClick={scrollLeft}
               className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
@@ -133,10 +133,10 @@ const Carousel = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="sm:max-w-[25%] w-[100%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
+              className="sm:max-w-[25%] w-[100%]  m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
               style={{ "border-radius": "20px" }}
             >
-              <div className="flex w-full justify-between">
+              <div className="flex w-full justify-between ">
                 <img src={img1} className="h-14 mb-2" alt="Img" />
                 <h3 className="text-gray-300 font-bold text-4xl mb-2">0{index + 1}</h3>
               </div>
