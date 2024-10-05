@@ -1,5 +1,9 @@
 import React, { useRef } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import img1 from "../assets/img1.png"
+import img2 from "../assets/img2.png"
+import img3 from "../assets/img3.png"
+import img4 from "../assets/img4.png"
 
 const services = [
   {
@@ -74,29 +78,39 @@ const Carousel = () => {
   const carouselRef = useRef(null);
 
   const scrollLeft = () => {
-    console.log('1')
-    carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    carouselRef.current.scrollBy({ left: -420, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    console.log('1')
-    carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    carouselRef.current.scrollBy({ left: 420, behavior: "smooth" });
   };
 
   return (
     <>
-      <div className='sm:flex justify-center items-center flex-col'>
-        <h4 className="text-center text-yellow-600 text-lg font-semibold my-5">Our Services</h4>
-        <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Electrical Services</h1>
+      <div className='sm:flex  justify-center mt-5 items-center flex-col'>
+        <div className='sm:flex items-center justify-center relative flex-col'>
+        <div className="absolute left-5 top-0">
+            <img className="sm:h-20 h-5 ml-10" src={img4} alt="" srcset="" />
+          </div>
+          <div className="flex justify-center">
+            <h4 className="flex items-center text-yellow-600 text-lg font-semibold my-5 text-center">
+              <span className="mr-2">
+                <img className="h-5" src={img3} alt="Image" />
+              </span>
+              Our Services
+            </h4>
+          </div>
+          <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Electrical Services</h1>
+          <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
+            <div className=' w-full'>
+              <p className='sm:p-7 m-2 text-center py-4 sm:text-md '>
+                Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
+              </p>
 
-        {/* Flex container for paragraph and buttons */}
-        <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
-          <p className='sm:p-7 py-4 sm:text-md pl-5'>
-            We specialize in a wide range of electrical services to suit every need. Our expert electrical services are crafted for those who expect nothing less than the highest standards of safety, reliability, and precision.
-          </p>
-
+            </div>
+          </div>
           {/* Button container for arrows */}
-          <div className="flex justify-center items-center mt-4 sm:mt-0 sm:ml-4 sm:mr-0 sm:justify-end sm:flex-row sm:gap-2">
+          <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
             <button
               onClick={scrollLeft}
               className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
@@ -110,21 +124,24 @@ const Carousel = () => {
               <FaArrowRight /> {/* Right Arrow */}
             </button>
           </div>
+
         </div>
       </div>
 
       <div className="relative flex items-center justify-center py-8">
-        <div
-          ref={carouselRef}
-          className="flex overflow-x-auto no-scrollbar space-x-6"
-        >
+        <div ref={carouselRef} className="flex overflow-x-auto no-scrollbar space-x-6">
           {services.map((service, index) => (
             <div
               key={index}
               className="sm:max-w-[25%] w-[100%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
+              style={{ "border-radius": "20px" }}
             >
+              <div className="flex w-full justify-between">
+                <img src={img1} className="h-14 mb-2" alt="Img" />
+                <h3 className="text-gray-300 font-bold text-4xl mb-2">0{index + 1}</h3>
+              </div>
               <div>
-                <h2 className="text-xl font-bold text-blue-900 mb-3">
+                <h2 className="text-xl font-semibold text-blue-900 mb-3">
                   {service.title}
                 </h2>
                 <p className="text-gray-700 mb-4">{service.description}</p>
@@ -145,6 +162,7 @@ const Carousel = () => {
           ))}
         </div>
       </div>
+
     </>
   );
 };
