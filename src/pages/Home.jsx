@@ -481,21 +481,24 @@ export default function Home() {
           </div>
 
           {/* Arrow navigation */}
-          <div className="flex absolute sm:right-5 sm:bottom-0 left-5 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 z-10">
+          <div className="flex sm:absolute sm:right-5 sm:bottom-0 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row gap-2 z-50">
             <button
               onClick={scrollLeft3}
-              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
+              className="z-50 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
             >
               <FaArrowLeft /> {/* Left Arrow */}
             </button>
             <button
               onClick={scrollRight3}
-              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
+              className="z-50 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
             >
               <FaArrowRight /> {/* Right Arrow */}
             </button>
           </div>
         </div>
+
+
+
 
         {/* Carousel Section */}
         <div className="relative flex items-center justify-center py-8 z-10 m-5 w-full overflow-hidden">
@@ -534,6 +537,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
 
       {/* Why Choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
