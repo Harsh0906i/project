@@ -18,6 +18,8 @@ import image_9 from "../assets/Rectangle34624693.png"
 import image_10 from "../assets/Group1171278047.png"
 import { GoArrowUpRight } from "react-icons/go";
 import image_8 from "../assets/img.png"
+import img5 from "../assets/img5.png"
+import img6 from "../assets/img6.png"
 
 const services = [
   {
@@ -45,6 +47,42 @@ const services = [
 
   },
 ];
+
+const Services = [
+  {
+    title: "Residential Electrical Solutions",
+    description:
+      "From lighting installations to full-home rewiring, we offer comprehensive services that ensure your home is safe, efficient, and powered for comfort.",
+    features: [
+      "Electrical Safety Inspections",
+      "Lighting Design & Installation",
+      "Wiring and Rewiring Services",
+      "Future-Ready Smart Home Integration",
+    ],
+  },
+  {
+    title: "Commercial Electrical Solutions",
+    description:
+      "We provide reliable electrical infrastructure for commercial spaces, ensuring businesses run smoothly with minimal downtime.",
+    features: [
+      "Electrical Installations for Offices and Retail Spaces",
+      "Energy-Efficient Lighting Solutions",
+      "Emergency Power Solutions",
+      "Routine Electrical Maintenance",
+    ],
+  },
+  {
+    title: "Industrial Electrical Services",
+    description:
+      "Our team handles large-scale industrial electrical projects with precision and compliance with safety standards.",
+    features: [
+      "Heavy-Duty Electrical Installations",
+      "Power Distribution Systems",
+      "Machinery and Equipment Wiring",
+      "Electrical Maintenance and Troubleshooting",
+    ],
+  },
+]
 
 const beforeAfter = [
   {
@@ -160,9 +198,8 @@ export default function Home() {
 
       {/* About Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Background Image with Gradient */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute  inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))` // Light blue with lower opacity for more clarity
           }}
@@ -173,13 +210,13 @@ export default function Home() {
             <div className="min-w-[30%] md:min-w-[30%]">
               <img src={image_2} alt="" className="w-full h-auto" />
             </div>
-            <div className="flex-1 m-4">
+            <div className="flex-1 m-4 pt-5 ">
               <h1 className=" text-white text-lg md:text-xl">About Us</h1>
               <h1 className=" font-bold text-white text-2xl md:text-3xl mt-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
               <p className="mt-4 text-white text-sm md:text-md pb-6 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit facilis voluptates consectetur quibusdam. Recusandae architecto quidem sint deleniti! Nostrum, ea. Provident est nemo facere doloribus earum deserunt, quos ad ut tenetur ipsum voluptatum consequuntur. Reiciendis, illum id? Porro numquam totam, facere sequi itaque a in illum sint provident sed cumque animi beatae placeat corrupti earum quisquam ab dolore quod nobis aperiam.
               </p>
-              <button className="relative overflow-hidden bg-yellow-500 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+              <button className="relative mt-5 overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
                 {/* Button Text */}
                 <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
                   Learn More
@@ -211,7 +248,7 @@ export default function Home() {
               </h4>
             </div>
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Recent Work</h1>
-            <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
+            <div className='sm:mx-7  sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
               <div className=''>
                 <p className='sm:p-7 text-center py-4 sm:text-md m-3'>
                   Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
@@ -223,6 +260,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className='absolute top-0 sm:left-5 left-0'>
+              <img src={img6} className='h-10 md:h-23 lg:h-32' alt="Image" />
+            </div>
+
             {/* Button container for arrows */}
             <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
@@ -270,23 +311,66 @@ export default function Home() {
 
       {/* Working */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Background Image with Gradient */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))` // Light blue with lower opacity for more clarity
+            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
           }}
         ></div>
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
             <div className=" flex flex-col flex-1 items-center justify-center">
-              <h1 className="font-bold text-lg md:text-xl w-full text-white text-center">Working Process</h1>
+              <h1 className=" md:text-xl w-full text-white text-center">Working Process</h1>
               <h1 className="font-bold text-2xl md:text-3xl text-white mt-2">Follow Great Process</h1>
-              <p className="mt-4 text-sm md:text-md pb-6 text-white">
-                our team of experts is equipped to assist you with variety of pipe repair needs. Please share your email address to connect with us.
+              <p className="mt-4 text-sm md:text-md pb-6 text-white text-center sm:text-left">
+                our team of experts is equipped to assist you with a variety of pipe repair needs. Please share your email address to connect with us.
               </p>
+
             </div>
           </div>
+          <div className='flex flex-col sm:flex-row gap-5'>
+            <div className='p-4 relative text-white'>
+              <div className='border p-4' style={{ "borderRadius": "20px " }}>
+                <h3 className='text-xl'>Meet Our Team</h3>
+                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+              </div>
+              <div className='absolute top-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
+                <p>01</p>
+              </div>
+            </div>
+
+            <div className='p-4 relative text-white'>
+              <div className='border p-4' style={{ "borderRadius": "20px " }}>
+                <h3 className='text-xl'>Meet Our Team</h3>
+                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+              </div>
+              <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
+                <p>02</p>
+              </div>
+            </div>
+
+            <div className='p-4 relative text-white'>
+              <div className='border p-4' style={{ "borderRadius": "20px " }}>
+                <h3 className='text-xl'>Meet Our Team</h3>
+                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+              </div>
+              <div className='absolute top-0 left-0 sm:right-0 sm:left-auto bg-yellow-600 rounded-full px-3 py-2'>
+                <p>03</p>
+              </div>
+
+            </div>
+
+            <div className='p-4 relative text-white'>
+              <div className='border p-4' style={{ "borderRadius": "20px " }}>
+                <h3 className='text-xl'>Meet Our Team</h3>
+                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+              </div>
+              <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
+                <p>04</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -305,7 +389,7 @@ export default function Home() {
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Amazing Work Results</h1>
             <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
               <div className=''>
-                <p className='sm:p-7 text-center py-4 sm:text-md pl-5'>
+                <p className='sm:p-7 text-center py-4 sm:text-md p-5'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptate aperiam architecto quae laudantium itaque.
                 </p>
 
@@ -380,30 +464,68 @@ export default function Home() {
       </div>
 
       {/* Testimonial */}
-      <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Background Image with Gradient */}
+      <div className='sm:flex justify-center mt-5 items-center flex-col relative'>
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))` // Light blue with lower opacity for more clarity
+            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
           }}
         ></div>
-        <div className="relative z-10 w-full">
-          <div className="flex flex-col md:flex-row gap-5">
-            <div className=" flex flex-col flex-1 items-center justify-center">
-              <h1 className="font-bold text-lg md:text-xl w-full text-center text-white">Testimonial</h1>
-              <h1 className="font-bold text-2xl md:text-3xl mt-2 text-white">Follow Great Process</h1>
-              <p className="mt-4 text-center text-sm md:text-md pb-6 text-white">
-                our team of experts is equipped to assist you with variety of pipe repair needs. Please share your email address to connect with us.
-              </p>
-            </div>
+
+        <div className='sm:flex w-full items-center justify-center relative z-10 flex-col'>
+          <div className="flex justify-center">
+            <h4 className="flex items-center text-white text-lg font-semibold mt-5 text-center">
+              <span className="mr-2">
+               
+              </span>
+              Testimonial
+            </h4>
+          </div>
+          <div>
+            <h1 className='text-center sm:text-4xl text-2xl text-white font-bold'>What Our Client Says</h1>
+          </div>
+
+          <div className="flex absolute right-5 bottom-0 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 z-10">
+            <button
+              onClick={scrollLeft3}
+              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
+            >
+              <FaArrowLeft /> {/* Left Arrow */}
+            </button>
+            <button
+              onClick={scrollRight3}
+              className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
+            >
+              <FaArrowRight /> {/* Right Arrow */}
+            </button>
+          </div>
+        </div>
+
+        <div className="relative flex items-center justify-center py-8 z-10 m-5">
+          <div ref={carouselRef3} className="flex overflow-x-auto no-scrollbar space-x-6">
+            {Services.map((service, index) => (
+              <div
+                key={index}
+                className="sm:max-w-[40%] w-[95%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
+                style={{ borderRadius: "20px" }}
+              >
+                <div className="flex w-full justify-between">
+                  <img src={img3} className="h-14 mb-2" alt="Img" />
+                  <h3 className="text-gray-300 font-bold text-4xl mb-2">Image</h3>
+                </div>
+                <div>
+                  <p className="text-gray-700 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+
+
       {/* Why Choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Background Image with Gradient */}
 
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
@@ -411,9 +533,14 @@ export default function Home() {
               <img src={image_9} alt="" className="w-full h-auto" />
             </div>
             <div className="flex-1 m-5">
-              <h1 className=" text-lg md:text-xl text-yellow-600">Why Choose Us</h1>
+              <h1 className="text-lg md:text-xl text-yellow-600 sm:text-left text-center">
+                <span>
+                  <img src={img3} className='h-4 inline-block mx-2 align-middle' alt="Icon" />
+                </span>
+                Why Choose Us
+              </h1>
               <h1 className="font-bold text-2xl md:text-3xl mt-2">Why You Choose Our Services</h1>
-              <p className="mt-4 text-sm md:text-md pb-6">
+              <p className="mt-4 text-sm md:text-md pb-6 sm:text-left text-center">
                 It has survived not only five centuries, but also the leap into type setting, remaining essentially unchanged. It was popularised.
               </p>
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mx-3'>
@@ -474,6 +601,11 @@ export default function Home() {
               <p className="flex items-center space-x-2 text-yellow-700"><MdLocationPin /><span className='text-black'>123 Main St, City</span></p>
             </div>
           </div>
+          <div className='absolute top-6 lg:block hidden'>
+            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent' />
+          </div>
+
+
         </div>
 
         {/* Right Section (Form) */}
@@ -507,7 +639,7 @@ export default function Home() {
               <label className="block font-medium mb-2">Message</label>
               <textarea style={{ "border-radius": "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
             </div>
-            <button className="relative overflow-hidden bg-yellow-500 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500 mt-4">
+            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500 mt-4">
               {/* Button Text */}
               <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
                 Submit

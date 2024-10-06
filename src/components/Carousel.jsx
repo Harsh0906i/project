@@ -89,7 +89,7 @@ const Carousel = () => {
     <>
       <div className='sm:flex  justify-center mt-5 items-center flex-col'>
         <div className='sm:flex items-center justify-center relative flex-col'>
-        <div className="absolute left-5 top-0">
+          <div className="absolute left-5 top-0">
             <img className="sm:h-20 h-5 ml-10" src={img4} alt="" srcset="" />
           </div>
           <div className="flex justify-center">
@@ -133,7 +133,7 @@ const Carousel = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="sm:max-w-[25%] w-[100%]  m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
+              className="sm:max-w-[25%] w-[95%]  m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
               style={{ "border-radius": "20px" }}
             >
               <div className="flex w-full justify-between ">
