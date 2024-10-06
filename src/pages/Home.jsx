@@ -155,10 +155,10 @@ export default function Home() {
       {/* Hero Section */}
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
-        <div className='flex flex-grow items-center justify-center w-full h-[40vh] sm:h-auto'>
+        <div className='flex flex-grow items-center justify-center w-full h-[30vh] sm:h-auto'>
           <img
             src={image_1}
-            className='w-full h-full object-cover'
+            className='w-full h-full object-contain'
             alt=""
           />
         </div>
@@ -169,7 +169,7 @@ export default function Home() {
           </h1>
           <div className='sm:w-[50%] md:w-[50%] px-9 pb-4'>
             <h3 className='sm:text-lg md:text-base ml-3'>
-              Providing top-tier electrical services for residential, commercial and
+              Providing top-tier electrical services for residential, commercial, and
               industrial clients in Mumbai. Let us power your spaces with precision and trust.
             </h3>
           </div>
@@ -192,7 +192,9 @@ export default function Home() {
         </div>
 
       </div>
-  
+
+
+
       <Carousel />
 
       {/* About Us */}
