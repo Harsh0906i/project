@@ -153,18 +153,22 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className='flex flex-col relative sm:flex-row mb-5 overflow-x-hidden'>
+      <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
-        <div className='flex flex-grow items-center justify-center w-full'>
-          <img src={image_1} className='w-full h-auto right-0' alt="" />
+        <div className='flex flex-grow items-center justify-center w-full h-[40vh] sm:h-auto'>
+          <img
+            src={image_1}
+            className='w-full h-full object-cover'
+            alt=""
+          />
         </div>
 
         <div className='flex flex-col justify-end sm:absolute sm:top-10 left-7 sm:w-full sm:justify-start'>
-          <h1 className='font-bold sm:text-4xl text-xl sm:px-9 sm:py-9 py-9 pl-3 sm:relative absolute top-0 sm:top-0'>
+          <h1 className='font-bold sm:text-4xl md:text-3xl text-xl sm:px-9 sm:py-9 py-9 pl-3 sm:relative absolute top-0 sm:top-0'>
             <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
           </h1>
-          <div className='sm:w-[50%] px-9 pb-4'>
-            <h3 className=' sm:text-lg ml-3'>
+          <div className='sm:w-[50%] md:w-[50%] px-9 pb-4'>
+            <h3 className='sm:text-lg md:text-base ml-3'>
               Providing top-tier electrical services for residential, commercial and
               industrial clients in Mumbai. Let us power your spaces with precision and trust.
             </h3>
@@ -184,12 +188,11 @@ export default function Home() {
               {/* Expanding circular background from the arrow */}
               <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
             </button>
-
           </div>
         </div>
 
       </div>
-
+  
       <Carousel />
 
       {/* About Us */}
@@ -277,29 +280,38 @@ export default function Home() {
         </div>
 
         <div className="relative flex items-center justify-center py-8">
-          <div
-            ref={carouselRef2}
-            className="flex overflow-x-auto no-scrollbar space-x-6"
-          >
+          <div ref={carouselRef2} className="flex overflow-x-auto no-scrollbar space-x-6">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="sm:max-w-[45%] w-[100%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
+                className="sm:max-w-[45%] w-[90%] m-2 min-h-[11rem] my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
               >
-                <div className='relative'>
-                  <img src={service.img} alt="Image" />
+                <div className="relative">
+                  <img src={service.img} alt="Image" className="w-full h-auto rounded-lg" />
+
+                  {/* Responsive arrow positioned at the edge of the top right corner */}
+                  <p className="text-white absolute right-5 top-5 bg-yellow-600 rounded-full flex items-center justify-center"
+                    style={{
+                      transform: 'translate(50%, -50%)',
+                      padding: '0.5rem', // Base padding
+                      width: '2rem', // Base size
+                      height: '2rem' // Base size
+                    }}>
+                    <GoArrowUpRight className="text-lg sm:text-xl md:text-2xl" /> {/* Responsive arrow size */}
+                  </p>
                 </div>
-                <div className='absolute text-white bottom-8 m-3 px-3'>
-                  <h1 className=' sm:text-2xl'>heading</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp</p>
+
+                <div className="absolute text-white bottom-8 m-3 px-3">
+                  <h1 className="sm:text-2xl text-lg font-bold">heading</h1>
+                  <p className="text-sm">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp
+                  </p>
                 </div>
-                <p className='text-white absolute sm:right-4 sm:top-4 right-2 top-2 bg-yellow-600 rounded-full sm:p-4 p-3'>
-                  <GoArrowUpRight />
-                </p>
               </div>
             ))}
           </div>
         </div>
+
       </div>
 
       {/* Working */}
@@ -538,14 +550,13 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Why Choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
         {/* Content Container */}
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
             {/* Image Section */}
-            <div className="min-w-[30%] md:min-w-[30%]">
+            <div className="md:w-1/3">
               <img src={image_9} alt="Why Choose Us" className="w-full h-auto object-cover" />
             </div>
             {/* Text Section */}
@@ -564,101 +575,72 @@ export default function Home() {
               </p>
               {/* Grid Layout for Features */}
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mx-3'>
-                <div className='flex items-center shadow-md p-3'>
-                  <div className='mr-3'>
-                    <img className='h-16' src={image_8} alt="Logo" />
+                {[...Array(4)].map((_, index) => (
+                  <div key={index} className='flex items-center shadow-md p-3'>
+                    <div className='mr-3'>
+                      <img className='h-16' src={image_8} alt="Logo" />
+                    </div>
+                    <div>
+                      <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
+                    </div>
                   </div>
-                  <div>
-                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
-                  </div>
-                </div>
-
-                <div className='flex items-center shadow-md p-3'>
-                  <div className='mr-3'>
-                    <img className='h-16' src={image_8} alt="Logo" />
-                  </div>
-                  <div>
-                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
-                  </div>
-                </div>
-
-                <div className='flex items-center shadow-md p-3'>
-                  <div className='mr-3'>
-                    <img className='h-16' src={image_8} alt="Logo" />
-                  </div>
-                  <div>
-                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
-                  </div>
-                </div>
-
-                <div className='flex items-center shadow-md p-3'>
-                  <div className='mr-3'>
-                    <img className='h-16' src={image_8} alt="Logo" />
-                  </div>
-                  <div>
-                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
-                  </div>
-                </div>
+                ))}
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
-
       {/* form */}
-      <div className=' flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 justify-center items-center p-6' style={{ "border-radius": "20px" }}>
+      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-6 rounded-[20px] overflow-hidden shadow-lg'>
         {/* Left Section */}
-
-        <div className='flex-1 relative sm:mr-8'>
-          <div className='sm:absolute sm:bottom-0'>
-
-            <h1 className="text-4xl font-bold text-center sm:text-left mb-4">Get In Touch With Us!</h1>
-            <p className="text-center sm:text-left mb-4">Need Electrical Services or have a project in mind? We are here to help! Reach out to us for a free consultation and let us bring your electrical vision to life.</p>
-            <div className="flex flex-col items-center sm:items-start space-y-2">
-              <p className="flex items-center space-x-2 text-yellow-700"><MdEmail /><span className='text-black'>email@example.com</span></p>
-              <p className="flex items-center space-x-2 text-yellow-700"><FaPhoneAlt className='' /><span className='text-black'>+1234567890</span></p>
-              <p className="flex items-center space-x-2 text-yellow-700"><MdLocationPin /><span className='text-black'>123 Main St, City</span></p>
-            </div>
-          </div>
-          <div className='absolute top-6 lg:block hidden'>
-            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent' />
+        <div className='flex-1 relative sm:mr-8 mb-6 sm:mb-0 p-4'>
+          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-4">Get In Touch With Us!</h1>
+          <p className="text-sm md:text-base text-center sm:text-left mb-4">
+            Need Electrical Services or have a project in mind? We are here to help! Reach out to us for a free consultation and let us bring your electrical vision to life.
+          </p>
+          <div className="flex flex-col items-center sm:items-start space-y-2 mb-4">
+            <p className="flex items-center space-x-2 text-yellow-700"><MdEmail /><span className='text-black'>email@example.com</span></p>
+            <p className="flex items-center space-x-2 text-yellow-700"><FaPhoneAlt /><span className='text-black'>+1234567890</span></p>
+            <p className="flex items-center space-x-2 text-yellow-700"><MdLocationPin /><span className='text-black'>123 Main St, City</span></p>
           </div>
 
-
+          {/* Image at the bottom */}
+          <div className='lg:block hidden'>
+            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-4' /> {/* Added margin-top for spacing */}
+          </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className='flex-1 mt-6 sm:mt-0 w-full sm:max-w-lg '>
+        <div className='flex-1 mt-6 sm:mt-0 w-full sm:max-w-lg p-4'>
           <form className='relative rounded-md p-6 w-full'>
             <div className='mb-4'>
               <label className="block font-medium mb-2">How Can We Help You?</label>
-              <input type="text" style={{ "border-radius": "10px" }} placeholder='Enter...' className='w-full p-2 bg-white rounded-md outline-none' />
+              <input type="text" style={{ borderRadius: "10px" }} placeholder='Enter...' className='w-full p-2 bg-white rounded-md outline-none' />
             </div>
-            <div className='grid sm:grid-cols-2 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
               <div>
                 <label className="block font-medium mb-2">Full Name</label>
-                <input type="text" style={{ "border-radius": "10px" }} placeholder='Name...' className='w-full p-2 bg-white rounded-md outline-none' />
+                <input type="text" style={{ borderRadius: "10px" }} placeholder='Name...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
                 <label className="block font-medium mb-2">Email Address</label>
-                <input type="text" style={{ "border-radius": "10px" }} placeholder='Email...' className='w-full p-2 bg-white rounded-md outline-none' />
+                <input type="text" style={{ borderRadius: "10px" }} placeholder='Email...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
-            <div className='grid sm:grid-cols-2 gap-4 mt-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4'>
               <div>
                 <label className="block font-medium mb-2">Country</label>
-                <input type="text" style={{ "border-radius": "10px" }} placeholder='Country...' className='w-full p-2 bg-white rounded-md outline-none' />
+                <input type="text" style={{ borderRadius: "10px" }} placeholder='Country...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
                 <label className="block font-medium mb-2">Phone Number</label>
-                <input type="text" style={{ "border-radius": "10px" }} placeholder='phone Number...' className='w-full p-2 bg-white rounded-md outline-none' />
+                <input type="text" style={{ borderRadius: "10px" }} placeholder='Phone Number...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
             <div className='mt-4'>
               <label className="block font-medium mb-2">Message</label>
-              <textarea style={{ "border-radius": "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
+              <textarea style={{ borderRadius: "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
             </div>
             <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500 mt-4">
               {/* Button Text */}
@@ -676,9 +658,7 @@ export default function Home() {
             </button>
           </form>
         </div>
-
       </div>
-
     </>
   );
 }

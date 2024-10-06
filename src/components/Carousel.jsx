@@ -129,39 +129,40 @@ const Carousel = () => {
       </div>
 
       <div className="relative flex items-center justify-center py-8">
-        <div ref={carouselRef} className="flex overflow-x-auto no-scrollbar space-x-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="sm:max-w-[25%] w-[95%]  m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
-              style={{ "border-radius": "20px" }}
-            >
-              <div className="flex w-full justify-between ">
-                <img src={img1} className="h-14 mb-2" alt="Img" />
-                <h3 className="text-gray-300 font-bold text-4xl mb-2">0{index + 1}</h3>
-              </div>
-              <div>
-                <h2 className="text-xl font-semibold text-blue-900 mb-3">
-                  {service.title}
-                </h2>
-                <p className="text-gray-700 mb-4">{service.description}</p>
-                <ul className="list-disc list-inside mb-4">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="text-gray-600">
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-auto">
-                <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          ))}
+  <div ref={carouselRef} className="flex overflow-x-auto no-scrollbar space-x-6">
+    {services.map((service, index) => (
+      <div
+        key={index}
+        className="w-[90%] sm:w-[45%] md:w-[30%] lg:w-[25%] m-2 min-h-[11rem] my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
+        style={{ borderRadius: "20px" }}
+      >
+        <div className="flex w-full justify-between items-center">
+          <img src={img1} className="h-14 mb-2" alt="Img" />
+          <h3 className="text-gray-300 font-bold text-4xl mb-2">0{index + 1}</h3>
+        </div>
+        <div>
+          <h2 className="text-xl font-semibold text-blue-900 mb-3">
+            {service.title}
+          </h2>
+          <p className="text-gray-700 mb-4">{service.description}</p>
+          <ul className="list-disc list-inside mb-4">
+            {service.features.map((feature, idx) => (
+              <li key={idx} className="text-gray-600">
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-auto">
+          <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
+            Learn More
+          </button>
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
 
     </>
   );
