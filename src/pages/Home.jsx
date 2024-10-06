@@ -10,8 +10,10 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import img3 from "../assets/img3.png"
 import { MdLocationPin } from "react-icons/md";
+import { IoPerson } from "react-icons/io5";
 import image_4 from "../assets/Group_1171277398.png"
 import image_5 from "../assets/Group_1171277395.png"
+import { RiStarSFill } from "react-icons/ri";
 import image_6 from "../assets/apartment-with-doorways-before-after-renovation4.png"
 import image_7 from "../assets/apartment-with-doorways-before-after-renovation2-1.png"
 import image_9 from "../assets/Rectangle34624693.png"
@@ -50,37 +52,23 @@ const services = [
 
 const Services = [
   {
-    title: "Residential Electrical Solutions",
     description:
-      "From lighting installations to full-home rewiring, we offer comprehensive services that ensure your home is safe, efficient, and powered for comfort.",
-    features: [
-      "Electrical Safety Inspections",
-      "Lighting Design & Installation",
-      "Wiring and Rewiring Services",
-      "Future-Ready Smart Home Integration",
-    ],
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
   },
   {
-    title: "Commercial Electrical Solutions",
     description:
-      "We provide reliable electrical infrastructure for commercial spaces, ensuring businesses run smoothly with minimal downtime.",
-    features: [
-      "Electrical Installations for Offices and Retail Spaces",
-      "Energy-Efficient Lighting Solutions",
-      "Emergency Power Solutions",
-      "Routine Electrical Maintenance",
-    ],
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+
   },
   {
-    title: "Industrial Electrical Services",
     description:
-      "Our team handles large-scale industrial electrical projects with precision and compliance with safety standards.",
-    features: [
-      "Heavy-Duty Electrical Installations",
-      "Power Distribution Systems",
-      "Machinery and Equipment Wiring",
-      "Electrical Maintenance and Troubleshooting",
-    ],
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+
+  },
+  {
+    description:
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+
   },
 ]
 
@@ -148,11 +136,19 @@ export default function Home() {
     carouselRef2.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   const scrollLeft3 = () => {
+    console.log(3)
     carouselRef3.current.scrollBy({ left: -420, behavior: "smooth" });
   };
 
   const scrollRight3 = () => {
     carouselRef3.current.scrollBy({ left: 420, behavior: "smooth" });
+  };
+  const scrollLeft4 = () => {
+    carouselRef4.current.scrollBy({ left: -420, behavior: "smooth" });
+  };
+
+  const scrollRight4 = () => {
+    carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   return (
     <>
@@ -201,7 +197,7 @@ export default function Home() {
         <div
           className="absolute  inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))` // Light blue with lower opacity for more clarity
+            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
           }}
         ></div>
 
@@ -217,17 +213,14 @@ export default function Home() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit facilis voluptates consectetur quibusdam. Recusandae architecto quidem sint deleniti! Nostrum, ea. Provident est nemo facere doloribus earum deserunt, quos ad ut tenetur ipsum voluptatum consequuntur. Reiciendis, illum id? Porro numquam totam, facere sequi itaque a in illum sint provident sed cumque animi beatae placeat corrupti earum quisquam ab dolore quod nobis aperiam.
               </p>
               <button className="relative mt-5 overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-                {/* Button Text */}
                 <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
                   Learn More
                 </span>
 
-                {/* Arrow with circular background */}
                 <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
                   <FaArrowRight className="text-black" />
                 </span>
 
-                {/* Expanding circular background from the arrow */}
                 <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
               </button>
             </div>
@@ -399,13 +392,13 @@ export default function Home() {
             {/* Button container for arrows */}
             <div className="flex absolute right-9 sm:bottom-0  justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
-                onClick={scrollLeft3}
+                onClick={scrollLeft4}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowLeft /> {/* Left Arrow */}
               </button>
               <button
-                onClick={scrollRight3}
+                onClick={scrollRight4}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
                 <FaArrowRight /> {/* Right Arrow */}
@@ -417,7 +410,7 @@ export default function Home() {
 
         <div className="relative flex items-center justify-center py-8">
           <div
-            ref={carouselRef3}
+            ref={carouselRef4}
             className="flex overflow-x-auto no-scrollbar space-x-6"
           >
             {beforeAfter.map((item, index) => (
@@ -464,7 +457,8 @@ export default function Home() {
       </div>
 
       {/* Testimonial */}
-      <div className='sm:flex justify-center mt-5 items-center flex-col relative'>
+      <div className='sm:flex justify-center mt-5 items-center flex-col relative overflow-hidden'>
+        {/* Background image with gradient */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -472,20 +466,22 @@ export default function Home() {
           }}
         ></div>
 
+        {/* Content on top of background */}
         <div className='sm:flex w-full items-center justify-center relative z-10 flex-col'>
+          {/* Heading section */}
           <div className="flex justify-center">
             <h4 className="flex items-center text-white text-lg font-semibold mt-5 text-center">
-              <span className="mr-2">
-               
-              </span>
               Testimonial
             </h4>
           </div>
           <div>
-            <h1 className='text-center sm:text-4xl text-2xl text-white font-bold'>What Our Client Says</h1>
+            <h1 className='text-center sm:text-4xl text-2xl text-white font-bold'>
+              What Our Client Says
+            </h1>
           </div>
 
-          <div className="flex absolute right-5 bottom-0 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 z-10">
+          {/* Arrow navigation */}
+          <div className="flex absolute sm:right-5 sm:bottom-0 left-5 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 z-10">
             <button
               onClick={scrollLeft3}
               className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
@@ -501,18 +497,35 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center py-8 z-10 m-5">
-          <div ref={carouselRef3} className="flex overflow-x-auto no-scrollbar space-x-6">
+        {/* Carousel Section */}
+        <div className="relative flex items-center justify-center py-8 z-10 m-5 w-full overflow-hidden">
+          <div ref={carouselRef3} className="flex overflow-x-scroll no-scrollbar space-x-6">
             {Services.map((service, index) => (
               <div
                 key={index}
                 className="sm:max-w-[40%] w-[95%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
                 style={{ borderRadius: "20px" }}
               >
-                <div className="flex w-full justify-between">
-                  <img src={img3} className="h-14 mb-2" alt="Img" />
-                  <h3 className="text-gray-300 font-bold text-4xl mb-2">Image</h3>
+                {/* Card content */}
+                <div className="flex w-full justify-between items-center">
+                  <div className='flex items-center gap-3'>
+                    <IoPerson className='h-8 w-8' />
+                    <div>
+                      <h1 className='text-gray-400 font-bold text-xl'>Name</h1>
+                      <p className='text-sm text-gray-300'>Description</p>
+                    </div>
+                  </div>
+                  <h3 className="text-gray-300 font-bold text-4xl mb-2">Logo</h3>
                 </div>
+                {/* Star Ratings */}
+                <div className='flex m-3'>
+                  <RiStarSFill />
+                  <RiStarSFill />
+                  <RiStarSFill />
+                  <RiStarSFill />
+                  <RiStarSFill />
+                </div>
+                {/* Service Description */}
                 <div>
                   <p className="text-gray-700 mb-4">{service.description}</p>
                 </div>
@@ -522,16 +535,16 @@ export default function Home() {
         </div>
       </div>
 
-
-
       {/* Why Choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-
+        {/* Content Container */}
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
+            {/* Image Section */}
             <div className="min-w-[30%] md:min-w-[30%]">
-              <img src={image_9} alt="" className="w-full h-auto" />
+              <img src={image_9} alt="Why Choose Us" className="w-full h-auto object-cover" />
             </div>
+            {/* Text Section */}
             <div className="flex-1 m-5">
               <h1 className="text-lg md:text-xl text-yellow-600 sm:text-left text-center">
                 <span>
@@ -539,17 +552,20 @@ export default function Home() {
                 </span>
                 Why Choose Us
               </h1>
-              <h1 className="font-bold text-2xl md:text-3xl mt-2">Why You Choose Our Services</h1>
+              <h1 className="font-bold text-2xl md:text-3xl mt-2 sm:text-left text-center">
+                Why You Choose Our Services
+              </h1>
               <p className="mt-4 text-sm md:text-md pb-6 sm:text-left text-center">
                 It has survived not only five centuries, but also the leap into type setting, remaining essentially unchanged. It was popularised.
               </p>
+              {/* Grid Layout for Features */}
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mx-3'>
                 <div className='flex items-center shadow-md p-3'>
                   <div className='mr-3'>
                     <img className='h-16' src={image_8} alt="Logo" />
                   </div>
                   <div>
-                    <h1 className='text-xl'>Certified Expert Worker</h1>
+                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
                   </div>
                 </div>
 
@@ -558,7 +574,7 @@ export default function Home() {
                     <img className='h-16' src={image_8} alt="Logo" />
                   </div>
                   <div>
-                    <h1 className='text-xl'>Certified Expert Worker</h1>
+                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
                   </div>
                 </div>
 
@@ -567,7 +583,7 @@ export default function Home() {
                     <img className='h-16' src={image_8} alt="Logo" />
                   </div>
                   <div>
-                    <h1 className='text-xl'>Certified Expert Worker</h1>
+                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
                   </div>
                 </div>
 
@@ -576,7 +592,7 @@ export default function Home() {
                     <img className='h-16' src={image_8} alt="Logo" />
                   </div>
                   <div>
-                    <h1 className='text-xl'>Certified Expert Worker</h1>
+                    <h1 className='text-lg sm:text-xl'>Certified Expert Worker</h1>
                   </div>
                 </div>
               </div>
@@ -585,6 +601,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
 
       {/* form */}
       <div className=' flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 justify-center items-center p-6' style={{ "border-radius": "20px" }}>
