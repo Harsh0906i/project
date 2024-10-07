@@ -22,6 +22,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import image_8 from "../assets/img.png"
 import img5 from "../assets/img5.png"
 import img6 from "../assets/img6.png"
+import img7 from "../assets/img7.png"
 
 const services = [
   {
@@ -155,26 +156,28 @@ export default function Home() {
       {/* Hero Section */}
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
-        <div className='flex flex-grow items-center justify-center w-full h-[30vh] sm:h-auto'>
+        {/* Image Container */}
+        <div className='flex flex-grow items-center justify-center w-full sm:h-auto h-full'>
           <img
             src={image_1}
-            className='w-full h-full object-contain'
+            className='w-full h-full object-contain animate-image-zoom'
             alt=""
           />
         </div>
 
+        {/* Text Container */}
         <div className='flex flex-col justify-end sm:absolute sm:top-10 left-7 sm:w-full sm:justify-start'>
-          <h1 className='font-bold sm:text-4xl md:text-3xl text-xl sm:px-9 sm:py-9 py-9 pl-3 sm:relative absolute top-0 sm:top-0'>
+          <h1 className='font-bold sm:text-4xl md:text-3xl text-xl sm:px-9 sm:py-9 py-16 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
             <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
           </h1>
-          <div className='sm:w-[50%] md:w-[50%] px-9 pb-4'>
-            <h3 className='sm:text-lg md:text-base ml-3'>
-              Providing top-tier electrical services for residential, commercial, and
-              industrial clients in Mumbai. Let us power your spaces with precision and trust.
+          <div className='sm:w-[50%] md:w-[50%] px-9 pb-4 animate-text-slide relative'>
+            <h3 className='sm:text-lg md:text-base sm:ml-3 border-l-2 border-yellow-600 pl-3'>
+              Providing top-tier electrical services for residential, commercial, and industrial clients in Mumbai. Let us power your spaces with precision and trust.
             </h3>
           </div>
+
           <div className='px-9 py-5'>
-            <button className="relative overflow-hidden bg-yellow-500 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
               {/* Button Text */}
               <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
                 Get Quote
@@ -192,8 +195,6 @@ export default function Home() {
         </div>
 
       </div>
-
-
 
       <Carousel />
 
@@ -235,7 +236,7 @@ export default function Home() {
 
       {/* Projects */}
       <div className='mt-5'>
-        <div className='sm:flex  justify-center items-center flex-col'>
+        <div className='sm:flex  justify-center items-center flex-col '>
           <div className='sm:flex items-center justify-center relative flex-col'>
             <div className="flex  justify-center">
               <h4 className="flex items-center text-yellow-600 text-lg font-semibold my-5 text-center">
@@ -245,10 +246,13 @@ export default function Home() {
                 Our Projects
               </h4>
             </div>
+            <div className='absolute sm:left-5 left-3'>
+              <img src={img6} className='sm:h-28 h-10' alt="Image" />
+            </div>
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Recent Work</h1>
-            <div className='sm:mx-7  sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
+            <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
               <div className=''>
-                <p className='sm:p-7 text-center py-4 sm:text-md m-3'>
+                <p className='sm:p-7 text-center  sm:text-md m-3'>
                   Take a look at some of our completed projects which shows our dedication to quality and excellence. Every project is a reflection of our commitment to quality, precision, and innovation.
                 </p>
                 <div className='text-center'>
@@ -258,9 +262,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className='absolute top-0 sm:left-5 left-0'>
-              <img src={img6} className='h-10 md:h-23 lg:h-32' alt="Image" />
-            </div>
+
 
             {/* Button container for arrows */}
             <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
@@ -384,14 +386,17 @@ export default function Home() {
       {/* Before & After */}
       <div>
         <div className='sm:flex  justify-center mt-5 items-center flex-col'>
-          <div className='sm:flex items-center justify-center relative flex-col'>
-            <div className="flex  justify-center">
+          <div className='sm:flex items-center w-full justify-center relative flex-col'>
+            <div className="flex  justify-center ">
               <h4 className="flex items-center text-yellow-600 text-lg font-semibold my-5 text-center">
                 <span className="mr-2">
                   <img className="h-5" src={img3} alt="Image" />
                 </span>
                 Before & After
               </h4>
+            </div>
+            <div className='absolute sm:left-16 left-10'>
+              <img src={img7} alt="" className='sm:h-28 h-9' />
             </div>
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Amazing Work Results</h1>
             <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
@@ -401,9 +406,7 @@ export default function Home() {
                 </p>
 
               </div>
-
             </div>
-            {/* Button container for arrows */}
             <div className="flex absolute right-9 sm:bottom-0  justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
                 onClick={scrollLeft4}
@@ -418,7 +421,6 @@ export default function Home() {
                 <FaArrowRight /> {/* Right Arrow */}
               </button>
             </div>
-
           </div>
         </div>
 
@@ -476,7 +478,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
+            backgroundImage: `url(${img_3}), linear-gradient(rgba(200, 230, 250, 0.15), rgba(200, 230, 250, 0.15))`
           }}
         ></div>
 
@@ -511,11 +513,8 @@ export default function Home() {
           </div>
         </div>
 
-
-
-
         {/* Carousel Section */}
-        <div className="relative flex items-center justify-center py-8 z-10 m-5 w-full overflow-hidden">
+        <div className="relative flex items-center justify-center py-8 z-10  w-full overflow-hidden">
           <div ref={carouselRef3} className="flex overflow-x-scroll no-scrollbar space-x-6">
             {Services.map((service, index) => (
               <div
