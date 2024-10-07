@@ -263,7 +263,6 @@ export default function Home() {
               </div>
             </div>
 
-
             {/* Button container for arrows */}
             <div className="flex absolute right-9 sm:bottom-0 justify-center items-center mt-1 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
               <button
@@ -348,12 +347,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className='p-4 relative text-white'>
+            <div className='p-4 relative text-white '>
               <div className='border p-4' style={{ "borderRadius": "20px " }}>
                 <h3 className='text-xl'>Meet Our Team</h3>
                 <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
               </div>
-              <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
+              <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2' style={{ "border": "transparent" }}>
                 <p>02</p>
               </div>
             </div>

@@ -17,13 +17,27 @@ export default function Footer() {
                 </div>
 
                 {/* Navigation Links */}
-                <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center text-left gap-x-6 flex-wrap w-full p-4'>
+                <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center grid grid-cols-4 gap-x-6 flex-wrap w-full p-4'>
+                    <div>
                     <p>Home <span>|</span></p>
-                    <p>About Us <span>|</span></p>
-                    <p>Services <span>|</span></p>
-                    <p>Projects <span>|</span></p>
-                    <p>Blog <span>|</span></p>
-                    <p>Contact Us</p>
+                    </div>
+
+                    <div>
+                    <p>Home <span>|</span></p>
+                    </div>
+                    <div>
+                    <p>Home <span>|</span></p>
+                    </div>
+                    <div>
+                    <p>Home <span>|</span></p>
+                    </div>
+                    <div>
+                    <p>Home <span>|</span></p>
+                    </div>
+                    <div>
+                    <p>Home </p>
+                    </div>
+                    
                 </div>
 
                 {/* Social Icons */}
