@@ -21,34 +21,31 @@ export default function Footer() {
             </div>
 
             <div className='sm:text-center flex flex-col items-center justify-center'>
-                <div className='sm:max-w-[50%] w-[100%] sm:mx-auto px-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!
+                <div className='sm:max-w-[50%] w-full sm:mx-auto px-4'>
+                    <p className="text-xs sm:text-sm md:text-base text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!</p>
                 </div>
 
                 {/* Navigation Links */}
-                <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center grid grid-cols-4 gap-x-6 flex-wrap w-full p-4'>
-                    <div>
-                        <p>Home <span>|</span></p>
+                <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-6 flex-wrap w-full p-4'>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">Home <span>|</span></p>
                     </div>
-                    <div>
-                        <p>Home <span>|</span></p>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">About <span>|</span></p>
                     </div>
-                    <div>
-                        <p>Home <span>|</span></p>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">Services <span>|</span></p>
                     </div>
-                    <div>
-                        <p>Home <span>|</span></p>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">Blog <span>|</span></p>
                     </div>
-                    <div>
-                        <p>Home <span>|</span></p>
-                    </div>
-                    <div>
-                        <p>Home</p>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">Contact</p>
                     </div>
                 </div>
 
                 {/* Social Icons */}
-                <div className='flex gap-5 flex-wrap justify-center'>
+                <div className='flex gap-5 flex-wrap justify-center mb-4'>
                     <div className='p-2 rounded-full bg-yellow-600 text-white'>
                         <FaFacebook className='h-5 w-5' />
                     </div>
@@ -70,21 +67,16 @@ export default function Footer() {
 
                 {/* Footer Text */}
                 <div className='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-20 pt-3 text-center sm:text-left'>
-                    <div>
+                    <div className="text-xs sm:text-sm">
                         <p>&copy; 2024 Star Electrician. All rights reserved.</p>
                     </div>
                     <div className='flex gap-x-4 mt-3 sm:mt-0'>
-                        <p>Privacy Policy</p>
-                        <p>Terms and Conditions</p>
+                        <p className="text-xs sm:text-sm">Privacy Policy</p>
+                        <p className="text-xs sm:text-sm">Terms and Conditions</p>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
-
 
 
     )

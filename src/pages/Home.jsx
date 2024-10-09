@@ -155,7 +155,6 @@ export default function Home() {
   };
   return (
     <>
-      {/* Hero Section */}
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
         {/* Image Container */}
@@ -169,11 +168,12 @@ export default function Home() {
 
         {/* Text Container */}
         <div className='flex flex-col justify-end sm:absolute sm:top-10 left-7 sm:w-full sm:justify-start'>
-          <h1 className='font-bold sm:text-4xl md:text-3xl text-xl sm:px-9 sm:py-9 py-16 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
+          <h1 className='font-bold text-md sm:text-2xl md:text-3xl lg:text-4xl sm:px-9 sm:py-9 py-16 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
             <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
           </h1>
+
           <div className='sm:w-[50%] md:w-[50%] px-9 pb-4 animate-text-slide relative'>
-            <h3 className='sm:text-lg md:text-base sm:ml-3 border-l-2 border-yellow-600 pl-3'>
+            <h3 className='text-sm sm:text-base md:text-md lg:text-xl sm:ml-3 border-l-2 border-yellow-600 pl-3'>
               Providing top-tier electrical services for residential, commercial, and industrial clients in Mumbai. Let us power your spaces with precision and trust.
             </h3>
           </div>
@@ -242,7 +242,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
 
       {/* Projects */}
       <div className='mt-5'>
@@ -404,7 +403,7 @@ export default function Home() {
               </h4>
             </div>
             <div className='absolute sm:left-16 left-5'>
-              <img src={img7} alt="" className='sm:h-28 h-9' />
+              <img src={img7} alt="" className=' h-5 sm:h-28 md:h-20' />
             </div>
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Amazing Work Results</h1>
             <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between'>
@@ -599,11 +598,11 @@ export default function Home() {
       </div>
 
       {/* form */}
-      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-6 rounded-[20px] overflow-hidden shadow-lg'>
+      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-4 rounded-[20px] overflow-hidden shadow-lg'>
         {/* Left Section */}
-        <div className='flex-1 relative sm:mr-8 mb-6 sm:mb-0 p-4'>
-          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-4">Get In Touch With Us!</h1>
-          <p className="text-sm md:text-base text-center sm:text-left mb-4">
+        <div className='flex-1 relative sm:mr-4 mb-6 sm:mb-0 p-4'>
+          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-2">Get In Touch With Us!</h1>
+          <p className="text-sm md:text-base text-center sm:text-left mb-2">
             Need Electrical Services or have a project in mind? We are here to help! Reach out to us for a free consultation and let us bring your electrical vision to life.
           </p>
           <div className="flex flex-col items-center sm:items-start space-y-2 mb-4">
@@ -614,42 +613,44 @@ export default function Home() {
 
           {/* Image at the bottom */}
           <div className='lg:block hidden'>
-            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-4' /> {/* Added margin-top for spacing */}
+            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-2' /> {/* Reduced margin-top for spacing */}
           </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className='flex-1 mt-6 sm:mt-0 w-full sm:max-w-lg p-4'>
-          <form className='relative rounded-md p-6 w-full'>
-            <div className='mb-4'>
-              <label className="block font-medium mb-2">How Can We Help You?</label>
+        <div className='flex-1 mt-4 sm:mt-0 w-full sm:max-w-lg p-4'>
+          <form className='relative rounded-md p-4 w-full'> {/* Reduced padding for the form */}
+            <div className='mb-2'>
+              <label className="block font-medium mb-1">How Can We Help You?</label>
               <input type="text" style={{ borderRadius: "10px" }} placeholder='Enter...' className='w-full p-2 bg-white rounded-md outline-none' />
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'> {/* Reduced gap for inputs */}
               <div>
-                <label className="block font-medium mb-2">Full Name</label>
+                <label className="block font-medium mb-1">Full Name</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Name...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
-                <label className="block font-medium mb-2">Email Address</label>
+                <label className="block font-medium mb-1">Email Address</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Email...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2'> {/* Reduced gap for inputs */}
               <div>
-                <label className="block font-medium mb-2">Country</label>
+                <label className="block font-medium mb-1">Country</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Country...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
-                <label className="block font-medium mb-2">Phone Number</label>
+                <label className="block font-medium mb-1">Phone Number</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Phone Number...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
-            <div className='mt-4'>
-              <label className="block font-medium mb-2">Message</label>
+            <div className='mt-2'>
+              <label className="block font-medium mb-1">Message</label>
               <textarea style={{ borderRadius: "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
             </div>
-            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500 mt-4">
+            <div className='m-4'>
+
+            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
               {/* Button Text */}
               <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
                 Submit
@@ -663,9 +664,13 @@ export default function Home() {
               {/* Expanding circular background from the arrow */}
               <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
             </button>
+            </div>
+
           </form>
         </div>
       </div>
+
+
     </>
   );
 }

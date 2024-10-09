@@ -179,7 +179,7 @@ export default function About() {
               </h4>
             </div>
             <div className="absolute sm:left-5 left-2 ">
-              <img className="sm:h-28 h-7 " src={frame} alt="" />
+              <img className="h-5 sm:h-28 md:h-20" src={frame} alt="" />
             </div>
             <h1 className='text-center sm:text-4xl text-2xl text-white font-bold'>Our Services We Offer</h1>
             <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between m-2'>
@@ -191,7 +191,7 @@ export default function About() {
             </div>
 
             {/* Button container for arrows */}
-            <div className="flex absolute right-5 bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+            <div className="flex absolute right-5 sm:bottom-0  justify-center items-center sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 ">
               <button
                 onClick={scrollLeft}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-white border rounded-full mx-1"
@@ -441,11 +441,11 @@ export default function About() {
         </div>
       </div>
       {/* form */}
-      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-6 rounded-[20px] overflow-hidden shadow-lg'>
+      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-4 rounded-[20px] overflow-hidden shadow-lg'>
         {/* Left Section */}
-        <div className='flex-1 relative sm:mr-8 mb-6 sm:mb-0 p-4'>
-          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-4">Get In Touch With Us!</h1>
-          <p className="text-sm md:text-base text-center sm:text-left mb-4">
+        <div className='flex-1 relative sm:mr-4 mb-6 sm:mb-0 p-4'>
+          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-2">Get In Touch With Us!</h1>
+          <p className="text-sm md:text-base text-center sm:text-left mb-2">
             Need Electrical Services or have a project in mind? We are here to help! Reach out to us for a free consultation and let us bring your electrical vision to life.
           </p>
           <div className="flex flex-col items-center sm:items-start space-y-2 mb-4">
@@ -456,55 +456,59 @@ export default function About() {
 
           {/* Image at the bottom */}
           <div className='lg:block hidden'>
-            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-4' /> {/* Added margin-top for spacing */}
+            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-2' /> {/* Reduced margin-top for spacing */}
           </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className='flex-1 mt-6 sm:mt-0 w-full sm:max-w-lg p-4'>
-          <form className='relative rounded-md p-6 w-full'>
-            <div className='mb-4'>
-              <label className="block font-medium mb-2">How Can We Help You?</label>
+        <div className='flex-1 mt-4 sm:mt-0 w-full sm:max-w-lg p-4'>
+          <form className='relative rounded-md p-4 w-full'> {/* Reduced padding for the form */}
+            <div className='mb-2'>
+              <label className="block font-medium mb-1">How Can We Help You?</label>
               <input type="text" style={{ borderRadius: "10px" }} placeholder='Enter...' className='w-full p-2 bg-white rounded-md outline-none' />
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'> {/* Reduced gap for inputs */}
               <div>
-                <label className="block font-medium mb-2">Full Name</label>
+                <label className="block font-medium mb-1">Full Name</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Name...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
-                <label className="block font-medium mb-2">Email Address</label>
+                <label className="block font-medium mb-1">Email Address</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Email...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2'> {/* Reduced gap for inputs */}
               <div>
-                <label className="block font-medium mb-2">Country</label>
+                <label className="block font-medium mb-1">Country</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Country...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
               <div>
-                <label className="block font-medium mb-2">Phone Number</label>
+                <label className="block font-medium mb-1">Phone Number</label>
                 <input type="text" style={{ borderRadius: "10px" }} placeholder='Phone Number...' className='w-full p-2 bg-white rounded-md outline-none' />
               </div>
             </div>
-            <div className='mt-4'>
-              <label className="block font-medium mb-2">Message</label>
+            <div className='mt-2'>
+              <label className="block font-medium mb-1">Message</label>
               <textarea style={{ borderRadius: "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
             </div>
-            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500 mt-4">
-              {/* Button Text */}
-              <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                Submit
-              </span>
+            <div className='m-4'>
 
-              {/* Arrow with circular background */}
-              <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                <FaArrowRight className="text-black" />
-              </span>
+              <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+                {/* Button Text */}
+                <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
+                  Submit
+                </span>
 
-              {/* Expanding circular background from the arrow */}
-              <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-            </button>
+                {/* Arrow with circular background */}
+                <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
+                  <FaArrowRight className="text-black" />
+                </span>
+
+                {/* Expanding circular background from the arrow */}
+                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
+              </button>
+            </div>
+
           </form>
         </div>
       </div>

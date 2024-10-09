@@ -87,8 +87,8 @@ const Carousel = () => {
 
   return (
     <>
-      <div className='sm:flex  justify-center mt-5 items-center flex-col'>
-        <div className='sm:flex items-center justify-center relative flex-col'>
+      <div className='sm:flex  justify-center mt-5 items-center mb-5 flex-col'>
+        <div className='sm:flex items-center justify-center relative flex-col '>
           <div className="flex justify-center">
             <h4 className="flex items-center text-yellow-600 text-lg font-semibold my-5 text-center">
               <span className="mr-2">
@@ -98,7 +98,7 @@ const Carousel = () => {
             </h4>
           </div>
           <div className="absolute sm:left-5 left-2 ">
-            <img className="sm:h-28 h-7 " src={img4} alt="" />
+            <img className="h-5 sm:h-24 md:h-20  " src={img4} alt="" />
           </div>
           <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Electrical Services</h1>
           <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between m-2'>
@@ -109,9 +109,9 @@ const Carousel = () => {
 
             </div>
           </div>
-          
+
           {/* Button container for arrows */}
-          <div className="flex absolute right-5 bottom-0 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2">
+          <div className="flex absolute right-5 sm:bottom-0  justify-center items-center sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 ">
             <button
               onClick={scrollLeft}
               className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
