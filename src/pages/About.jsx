@@ -400,6 +400,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      
       {/* Why choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
         {/* Content Container */}
@@ -440,6 +441,7 @@ export default function About() {
           </div>
         </div>
       </div>
+
       {/* form */}
       <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-4 rounded-[20px] overflow-hidden shadow-lg'>
         {/* Left Section */}
