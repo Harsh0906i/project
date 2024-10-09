@@ -20,9 +20,9 @@ export default function Footer() {
                 <img src={TransparentLogo} className='h-20' alt="Logo" />
             </div>
 
-            <div className='sm:text-center flex flex-col items-center justify-center'>
+            <div className='sm:text-center flex flex-col mt-4 items-center justify-center'>
                 <div className='sm:max-w-[50%] w-full sm:mx-auto px-4'>
-                    <p className="text-xs sm:text-sm md:text-base text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!</p>
+                    <p className="text-sm sm:text-md md:text-base text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!</p>
                 </div>
 
                 {/* Navigation Links */}
