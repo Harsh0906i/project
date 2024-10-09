@@ -5,6 +5,7 @@ import Headers from "./components/Headers"
 import Projects from "./pages/Projects"
 import Services from "./pages/Services"
 import Footer from "./components/Footer"
+import Blog from "./pages/Blog"
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

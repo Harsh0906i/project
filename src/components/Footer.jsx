@@ -1,5 +1,7 @@
 import React from 'react'
-import Logo from "../assets/Logo.jpeg"
+// import Logo from "../assets/Logo.jpeg"
+import TransparentLogo from "../assets/Group1171277362.png"
+import background from "../assets/7f9534e6d290e490bd2ddbc9513f00ad.jpeg"
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
@@ -7,37 +9,42 @@ import { LiaLinkedinIn } from "react-icons/lia";
 
 export default function Footer() {
     return (
-        <div className='flex flex-col justify-center items-center bg-slate-400 p-6'>
+        <div className='flex text-white flex-col justify-center items-center p-6'
+            style={{
+                backgroundImage: `linear-gradient(90deg, rgba(0, 43, 92, 0.8) 0%, #002B5C 43.05%, #002B5C 100%), url(${background})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'left center'
+            }}>
+
             <div className='mt-3'>
-                <img src={Logo} className='h-20' alt="" />
+                <img src={TransparentLogo} className='h-20' alt="Logo" />
             </div>
-            <div className='sm:text-center py-6 flex flex-col items-center justify-center'>
-                <div className='sm:max-w-[50%] w-[100%] sm:mx-auto p-4'>
+
+            <div className='sm:text-center flex flex-col items-center justify-center'>
+                <div className='sm:max-w-[50%] w-[100%] sm:mx-auto px-4'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!
                 </div>
 
                 {/* Navigation Links */}
                 <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center grid grid-cols-4 gap-x-6 flex-wrap w-full p-4'>
                     <div>
-                    <p>Home <span>|</span></p>
-                    </div>
-
-                    <div>
-                    <p>Home <span>|</span></p>
+                        <p>Home <span>|</span></p>
                     </div>
                     <div>
-                    <p>Home <span>|</span></p>
+                        <p>Home <span>|</span></p>
                     </div>
                     <div>
-                    <p>Home <span>|</span></p>
+                        <p>Home <span>|</span></p>
                     </div>
                     <div>
-                    <p>Home <span>|</span></p>
+                        <p>Home <span>|</span></p>
                     </div>
                     <div>
-                    <p>Home </p>
+                        <p>Home <span>|</span></p>
                     </div>
-                    
+                    <div>
+                        <p>Home</p>
+                    </div>
                 </div>
 
                 {/* Social Icons */}
@@ -72,6 +79,13 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
+
+
+
     )
 }

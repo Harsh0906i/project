@@ -97,8 +97,8 @@ const Carousel = () => {
               Our Services
             </h4>
           </div>
-          <div className="absolute sm:left-5 left-3 ">
-            <img className="sm:h-28 h-10 " src={img4} alt="" srcset="" />
+          <div className="absolute sm:left-5 left-2 ">
+            <img className="sm:h-28 h-7 " src={img4} alt="" />
           </div>
           <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Our Electrical Services</h1>
           <div className='sm:mx-7 sm:max-w-[65%] flex flex-col sm:flex-row items-start sm:items-center justify-between m-2'>

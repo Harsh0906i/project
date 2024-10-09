@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
 import { FaPhoneAlt } from "react-icons/fa";
+import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
 import { MdEmail } from "react-icons/md";
 import img3 from "../assets/img3.png"
 import { MdLocationPin } from "react-icons/md";
@@ -23,6 +24,8 @@ import image_8 from "../assets/img.png"
 import img5 from "../assets/img5.png"
 import img6 from "../assets/img6.png"
 import img7 from "../assets/img7.png"
+import img8 from "../assets/Vector.svg"
+
 
 const services = [
   {
@@ -137,7 +140,6 @@ export default function Home() {
     carouselRef2.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   const scrollLeft3 = () => {
-    console.log(3)
     carouselRef3.current.scrollBy({ left: -420, behavior: "smooth" });
   };
 
@@ -201,22 +203,29 @@ export default function Home() {
       {/* About Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
         <div
-          className="absolute  inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
+            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
           }}
         ></div>
 
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="min-w-[30%] md:min-w-[30%]">
+            <div className="min-w-[30%] md:min-w-[30%] flex-shrink-0">
               <img src={image_2} alt="" className="w-full h-auto" />
             </div>
-            <div className="flex-1 m-4 pt-5 ">
-              <h1 className=" text-white text-lg md:text-xl">About Us</h1>
-              <h1 className=" font-bold text-white text-2xl md:text-3xl mt-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
-              <p className="mt-4 text-white text-sm md:text-md pb-6 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit facilis voluptates consectetur quibusdam. Recusandae architecto quidem sint deleniti! Nostrum, ea. Provident est nemo facere doloribus earum deserunt, quos ad ut tenetur ipsum voluptatum consequuntur. Reiciendis, illum id? Porro numquam totam, facere sequi itaque a in illum sint provident sed cumque animi beatae placeat corrupti earum quisquam ab dolore quod nobis aperiam.
+            <div className="flex-1 m-4 pt-5">
+              <h1 className="text-white text-lg md:text-xl flex items-center gap-x-2">
+                <span>
+                  <img src={img8} alt="Logo" />
+                </span>
+                About Us
+              </h1>
+              <h1 className="font-bold text-white text-2xl md:text-3xl mt-2">
+                Trusted Electrical Experts Since 1994
+              </h1>
+              <p className="mt-4 text-white sm:text-lg text-sm md:text-md pb-6 ">
+                For over 30 years, Star Electrician Services has set the standard for excellence in the electrical industry. Our work goes beyond wires and circuits; we create environments that function seamlessly. Whether its lighting a home or powering an industrial complex, our solutions are tailored for those who expect nothing but the best. Trusted, tested, and built to last.
               </p>
               <button className="relative mt-5 overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
                 <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
@@ -233,6 +242,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
 
       {/* Projects */}
       <div className='mt-5'>
@@ -314,7 +324,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
       </div>
 
       {/* Working */}
@@ -322,13 +331,13 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3))`
+            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
           }}
         ></div>
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
             <div className=" flex flex-col flex-1 items-center justify-center">
-              <h1 className=" md:text-xl w-full text-white text-center">Working Process</h1>
+              <h1 className=" text-white text-lg md:text-xl flex items-center gap-x-2"><span><img src={img8} alt="Logo" /></span>Working Process</h1>
               <h1 className="font-bold text-2xl md:text-3xl text-white mt-2">Follow Great Process</h1>
               <p className="mt-4 text-sm md:text-md pb-6 text-white text-center sm:text-left">
                 our team of experts is equipped to assist you with a variety of pipe repair needs. Please share your email address to connect with us.
@@ -394,7 +403,7 @@ export default function Home() {
                 Before & After
               </h4>
             </div>
-            <div className='absolute sm:left-16 left-10'>
+            <div className='absolute sm:left-16 left-5'>
               <img src={img7} alt="" className='sm:h-28 h-9' />
             </div>
             <h1 className='text-center sm:text-4xl text-2xl text-blue-900 font-bold'>Amazing Work Results</h1>
@@ -477,17 +486,15 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${img_3}), linear-gradient(rgba(200, 230, 250, 0.15), rgba(200, 230, 250, 0.15))`
+            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
           }}
         ></div>
 
         {/* Content on top of background */}
         <div className='sm:flex w-full items-center justify-center relative z-10 flex-col'>
           {/* Heading section */}
-          <div className="flex justify-center">
-            <h4 className="flex items-center text-white text-lg font-semibold mt-5 text-center">
-              Testimonial
-            </h4>
+          <div className="flex justify-center m-2">
+            <h1 className=" text-white text-lg md:text-xl flex items-center gap-x-2"><span><img src={img8} alt="Logo" /></span>Testimonial</h1>
           </div>
           <div>
             <h1 className='text-center sm:text-4xl text-2xl text-white font-bold'>
