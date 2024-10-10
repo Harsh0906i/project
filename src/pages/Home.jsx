@@ -6,6 +6,11 @@ import img_3 from "../assets/image_3.png"
 import { useRef } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
+import Vector2 from "../assets/Vector2.svg"
+import img_11 from "../assets/Group1171277409.svg"
+import frame1 from "../assets/Frame1.png"
+import img_12 from "../assets/image2.png"
+import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
 import { FaPhoneAlt } from "react-icons/fa";
 import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
 import { MdEmail } from "react-icons/md";
@@ -56,22 +61,30 @@ const services = [
 
 const Services = [
   {
+    name: "Rajesh M",
+    designation: "Cooprate client",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+      " Star Electrician Services transformed our office with their exceptional lighting and power solutions. Their team was professional, and the results exceeded our expectations!",
   },
   {
+    name: "Sunita P",
+    designation: "Homeowner",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+      " We trust Star Electrician Services for all our electrical needs. Their attention to detail and timely completion of projects makes them our go-to partner",
 
   },
   {
+    name: "Rajesh M",
+    designation: "Cooprate client",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+      " Star Electrician Services transformed our office with their exceptional lighting and power solutions. Their team was professional, and the results exceeded our expectations!",
 
   },
   {
+    name: "Sunita P",
+    designation: "Homeowner",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, libero cumque reprehenderit quos itaque quas nulla rerum, iure explicabo nihil doloribus ex, cum natus pariatur! Consequatur totam quae aperiam distinctio.",
+      " We trust Star Electrician Services for all our electrical needs. Their attention to detail and timely completion of projects makes them our go-to partner",
 
   },
 ]
@@ -167,7 +180,7 @@ export default function Home() {
         </div>
 
         {/* Text Container */}
-        <div className='flex flex-col justify-end sm:absolute sm:top-10 left-7 sm:w-full sm:justify-start'>
+        <div className='flex flex-col justify-end sm:absolute top-7 sm:top-10 md:top-6 left-7 sm:w-full sm:justify-start'>
           <h1 className='font-bold text-md sm:text-2xl md:text-3xl lg:text-4xl sm:px-9 sm:py-9 py-16 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
             <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
           </h1>
@@ -202,41 +215,55 @@ export default function Home() {
 
       {/* About Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
+        {/* Background Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
+            backgroundColor: 'rgba(0, 20, 50, 0.85)', // Darker blue with 85% opacity
+            backgroundImage: `url(${back})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left center',
           }}
         ></div>
 
+        {/* Content Layer */}
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="min-w-[30%] md:min-w-[30%] flex-shrink-0">
-              <img src={image_2} alt="" className="w-full h-auto" />
+            {/* Left: Image Block with responsive size adjustments */}
+            <div className="min-w-[40%] md:min-w-[30%] lg:min-w-[25%] flex-shrink-0">
+              <img src={image_2} alt="About Us Image"
+                className="w-full h-auto object-cover sm:h-60 md:h-72 lg:h-96" />
             </div>
+
+            {/* Right: Text Block */}
             <div className="flex-1 m-4 pt-5">
               <h1 className="text-white text-lg md:text-xl flex items-center gap-x-2">
                 <span>
-                  <img src={img8} alt="Logo" />
+                  <img src={img8} alt="Logo" className="w-5 h-5" />
                 </span>
                 About Us
               </h1>
               <h1 className="font-bold text-white text-2xl md:text-3xl mt-2">
                 Trusted Electrical Experts Since 1994
               </h1>
-              <p className="mt-4 text-white sm:text-lg text-sm md:text-md pb-6 ">
+              <p className="mt-4 text-white text-md sm:text-lg md:text-md pb-6">
                 For over 30 years, Star Electrician Services has set the standard for excellence in the electrical industry. Our work goes beyond wires and circuits; we create environments that function seamlessly. Whether its lighting a home or powering an industrial complex, our solutions are tailored for those who expect nothing but the best. Trusted, tested, and built to last.
               </p>
-              <button className="relative mt-5 overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+
+              {/* Button with hover effect */}
+              <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+                {/* Button Text */}
                 <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                  Learn More
+                  Learn more
                 </span>
 
+                {/* Arrow with circular background */}
                 <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
                   <FaArrowRight className="text-black" />
                 </span>
 
-                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
+                {/* Expanding circular background from the arrow */}
+                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-300 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
               </button>
             </div>
           </div>
@@ -330,7 +357,11 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
+            backgroundColor: 'rgba(0, 20, 50, 0.85)', // Darker blue with 85% opacity
+            backgroundImage: `url(${back})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left center',
+            // minHeight: '100vh', // Ensure enough height to show the background
           }}
         ></div>
         <div className="relative z-10 w-full">
@@ -338,7 +369,7 @@ export default function Home() {
             <div className=" flex flex-col flex-1 items-center justify-center">
               <h1 className=" text-white text-lg md:text-xl flex items-center gap-x-2"><span><img src={img8} alt="Logo" /></span>Working Process</h1>
               <h1 className="font-bold text-2xl md:text-3xl text-white mt-2">Follow Great Process</h1>
-              <p className="mt-4 text-sm md:text-md pb-6 text-white text-center sm:text-left">
+              <p className="mt-4 text-sm md:text-md pb-6 text-white text-center">
                 our team of experts is equipped to assist you with a variety of pipe repair needs. Please share your email address to connect with us.
               </p>
 
@@ -347,8 +378,10 @@ export default function Home() {
           <div className='flex flex-col sm:flex-row gap-5'>
             <div className='p-4 relative text-white'>
               <div className='border p-4' style={{ "borderRadius": "20px " }}>
-                <h3 className='text-xl'>Meet Our Team</h3>
-                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+                <h3 className='sm:text-xl pb-2 md:text-lg'>Meet Our Team</h3>
+                <p className='text-sm'>Proactively envisioned
+                  multimedia based expertisee
+                  cross-media growth</p>
               </div>
               <div className='absolute top-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
                 <p>01</p>
@@ -357,8 +390,11 @@ export default function Home() {
 
             <div className='p-4 relative text-white '>
               <div className='border p-4' style={{ "borderRadius": "20px " }}>
-                <h3 className='text-xl'>Meet Our Team</h3>
-                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+                <h3 className='sm:text-xl pb-2 md:text-lg'>Meet Our Team</h3>
+
+                <p className='text-sm'>Proactively envisioned
+                  multimedia based expertisee
+                  cross-media growth</p>
               </div>
               <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2' style={{ "border": "transparent" }}>
                 <p>02</p>
@@ -367,8 +403,11 @@ export default function Home() {
 
             <div className='p-4 relative text-white'>
               <div className='border p-4' style={{ "borderRadius": "20px " }}>
-                <h3 className='text-xl'>Meet Our Team</h3>
-                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+                <h3 className='sm:text-xl pb-2 md:text-lg'>Meet Our Team</h3>
+
+                <p className='text-sm'>Proactively envisioned
+                  multimedia based expertisee
+                  cross-media growth</p>
               </div>
               <div className='absolute top-0 left-0 sm:right-0 sm:left-auto bg-yellow-600 rounded-full px-3 py-2'>
                 <p>03</p>
@@ -378,8 +417,11 @@ export default function Home() {
 
             <div className='p-4 relative text-white'>
               <div className='border p-4' style={{ "borderRadius": "20px " }}>
-                <h3 className='text-xl'>Meet Our Team</h3>
-                <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, cum! Ad iure vel minus</p>
+                <h3 className='sm:text-xl pb-2 md:text-lg'>Meet Our Team</h3>
+
+                <p className='text-sm'>Proactively envisioned
+                  multimedia based expertisee
+                  cross-media growth</p>
               </div>
               <div className='absolute bottom-0 right-0 bg-yellow-600 rounded-full px-3 py-2'>
                 <p>04</p>
@@ -485,7 +527,10 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 43, 92, 0.7), rgba(0, 43, 92, 0.7)), url(${back})`,
+            backgroundColor: 'rgba(0, 5, 15, 0.85)',
+            backgroundImage: `url(${back})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left center',
           }}
         ></div>
 
@@ -530,16 +575,16 @@ export default function Home() {
                 {/* Card content */}
                 <div className="flex w-full justify-between items-center">
                   <div className='flex items-center gap-3'>
-                    <IoPerson className='h-8 w-8' />
+                    <img src={Profile} alt="Profile" className='rounded-full h-11 sm:h-16 md:h-14' />
                     <div>
-                      <h1 className='text-gray-400 font-bold text-xl'>Name</h1>
-                      <p className='text-sm text-gray-300'>Description</p>
+                      <h1 className='text-black font-bold text-xl'>{service.name}</h1>
+                      <p className='text-sm text-black'>{service.designation}</p>
                     </div>
                   </div>
-                  <h3 className="text-gray-300 font-bold text-4xl mb-2">Logo</h3>
+                  <img src={img_11} className='h-9 sm:h-16 md:h-12' alt="" />
                 </div>
                 {/* Star Ratings */}
-                <div className='flex m-3'>
+                <div className='flex m-3 text-yellow-600'>
                   <RiStarSFill />
                   <RiStarSFill />
                   <RiStarSFill />
@@ -551,6 +596,7 @@ export default function Home() {
                   <p className="text-gray-700 mb-4">{service.description}</p>
                 </div>
               </div>
+
             ))}
           </div>
         </div>
@@ -560,13 +606,13 @@ export default function Home() {
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
         {/* Content Container */}
         <div className="relative z-10 w-full">
-          <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col md:flex-row gap-5 ">
             {/* Image Section */}
             <div className="md:w-1/3">
               <img src={image_9} alt="Why Choose Us" className="w-full h-auto object-cover" />
             </div>
             {/* Text Section */}
-            <div className="flex-1 m-5">
+            <div className="flex-1 m-5 ">
               <h1 className="text-lg md:text-xl text-yellow-600 sm:text-left text-center">
                 <span>
                   <img src={img3} className='h-4 inline-block mx-2 align-middle' alt="Icon" />
@@ -576,7 +622,7 @@ export default function Home() {
               <h1 className="font-bold text-2xl md:text-3xl mt-2 sm:text-left text-center">
                 Why You Choose Our Services
               </h1>
-              <p className="mt-4 text-sm md:text-md pb-6 sm:text-left text-center">
+              <p className="mt-4 text-md md:text-lg pb-6 sm:text-left text-center">
                 It has survived not only five centuries, but also the leap into type setting, remaining essentially unchanged. It was popularised.
               </p>
               {/* Grid Layout for Features */}
@@ -591,6 +637,9 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div>
+                <img src={img_12} alt="" className='absolute top-0 right-0 h-10 sm:h-20 md:h-20  ' />
               </div>
             </div>
           </div>
@@ -650,20 +699,20 @@ export default function Home() {
             </div>
             <div className='m-4'>
 
-            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-              {/* Button Text */}
-              <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                Submit
-              </span>
+              <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
+                {/* Button Text */}
+                <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
+                  Submit
+                </span>
 
-              {/* Arrow with circular background */}
-              <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                <FaArrowRight className="text-black" />
-              </span>
+                {/* Arrow with circular background */}
+                <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
+                  <FaArrowRight className="text-black" />
+                </span>
 
-              {/* Expanding circular background from the arrow */}
-              <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-            </button>
+                {/* Expanding circular background from the arrow */}
+                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
+              </button>
             </div>
 
           </form>

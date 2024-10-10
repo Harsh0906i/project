@@ -22,7 +22,7 @@ export default function Footer() {
 
             <div className='sm:text-center flex flex-col mt-4 items-center justify-center'>
                 <div className='sm:max-w-[50%] w-full sm:mx-auto px-4'>
-                    <p className="text-sm sm:text-md md:text-base text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti error rem, iure velit nihil vitae molestias numquam? In voluptatibus laudantium blanditiis, sit cum modi optio quibusdam eos dolores repellendus!</p>
+                    <p className="text-sm sm:text-md md:text-base text-center">The most quality services by subtle craftmens, Diam id semper tellus. Est aliquam sit est ac. Felis diam nunc nibh blandit risus ndrerit sed consectetur quis leo on the praesent in Rakar.</p>
                 </div>
 
                 {/* Navigation Links */}
@@ -38,6 +38,9 @@ export default function Footer() {
                     </div>
                     <div className='flex justify-center'>
                         <p className="text-xs sm:text-sm">Blog <span>|</span></p>
+                    </div>
+                    <div className='flex justify-center'>
+                        <p className="text-xs sm:text-sm">Projects <span>|</span></p>
                     </div>
                     <div className='flex justify-center'>
                         <p className="text-xs sm:text-sm">Contact</p>

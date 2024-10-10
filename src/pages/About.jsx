@@ -6,10 +6,13 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
 import vetorLogo from "../assets/vectorlogo.svg"
 import { FaPhoneAlt } from "react-icons/fa";
+import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
+import img_12 from "../assets/image2.png"
 import { MdEmail } from "react-icons/md";
 import { MdLocationPin } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
 import img1 from "../assets/img1.png"
+import img_11 from "../assets/Group1171277409.svg"
 import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
 import img3 from "../assets/img3.png"
 import image_4 from "../assets/Group_1171277398.png"
@@ -76,6 +79,35 @@ const Services = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, obcaecati nostrum impedit voluptatibus sed asperiores?"
   },
 ];
+const reviews = [
+  {
+    name: "Rajesh M",
+    designation: "Cooprate client",
+    description:
+      " Star Electrician Services transformed our office with their exceptional lighting and power solutions. Their team was professional, and the results exceeded our expectations!",
+  },
+  {
+    name: "Sunita P",
+    designation: "Homeowner",
+    description:
+      " We trust Star Electrician Services for all our electrical needs. Their attention to detail and timely completion of projects makes them our go-to partner",
+
+  },
+  {
+    name: "Rajesh M",
+    designation: "Cooprate client",
+    description:
+      " Star Electrician Services transformed our office with their exceptional lighting and power solutions. Their team was professional, and the results exceeded our expectations!",
+
+  },
+  {
+    name: "Sunita P",
+    designation: "Homeowner",
+    description:
+      " We trust Star Electrician Services for all our electrical needs. Their attention to detail and timely completion of projects makes them our go-to partner",
+
+  },
+]
 
 
 export default function About() {
@@ -127,31 +159,38 @@ export default function About() {
       </div>
 
       {/* About Us */}
-      <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-
+      <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6 overflow-hidden">
+        {/* Content Layer */}
         <div className="relative z-10 w-full">
-          <div className="flex flex-col md:flex-row gap-5">
-            <div className="min-w-[30%] md:min-w-[30%] flex-shrink-0">
-              <img src={image_2} alt="" className="w-full h-auto" />
+          <div className="flex flex-col md:flex-row flex-wrap gap-5">
+            {/* Left: Image Block with responsive size adjustments */}
+            <div className="min-w-[40%] md:min-w-[30%] lg:min-w-[25%] flex-shrink-0">
+              <img src={image_2} alt="About Us Image"
+                className="w-full h-auto object-cover sm:h-60 md:h-72 lg:h-96" />
             </div>
-            <div className="flex-1 m-4 pt-9">
-              <h1 className="text-yellow-600 text-lg md:text-xl flex items-center gap-x-2">
+
+            {/* Right: Text Block */}
+            <div className="flex-1 relative m-4 pt-2">
+              <h1 className="text-black text-lg md:text-xl flex items-center gap-x-2">
                 <span>
-                  <img src={img8} alt="Logo" />
+                  <img src={img8} alt="Logo" className="w-5 h-5" />
                 </span>
                 About Us
               </h1>
-              <h1 className="font-bold text-blue-900 text-2xl md:text-4xl mt-2">
+              <h1 className="font-bold text-black text-2xl md:text-3xl mt-2">
                 Trusted Electrical Experts Since 1994
               </h1>
-              <div className='relative'>
-                <p className="mt-4  text-black sm:text-lg text-sm md:text-md pb-6 ">
-                  For over 30 years, Star Electrician Services has set the standard for excellence in the electrical industry. Our work goes beyond wires and circuits; we create environments that function seamlessly. Whether its lighting a home or powering an industrial complex, our solutions are tailored for those who expect nothing but the best. Trusted, tested, and built to last.
-                </p>
+              <p className="mt-4 text-black text-md sm:text-lg md:text-base pb-6">
+                For over 30 years, Star Electrician Services has set the standard for excellence in the electrical industry. Our work goes beyond wires and circuits; we create environments that function seamlessly. Whether its lighting a home or powering an industrial complex, our solutions are tailored for those who expect nothing but the best. Trusted, tested, and built to last.
+              </p>
+              <div className='mb-3'>
+                <img
+                  src={img4}
+                  alt=""
+                  className="hidden sm:block absolute right-0 h-9 md:h-14 sm:h-20"
+                />
               </div>
-              <div>
-                <img src={img4} alt="" className='sm:h-20 h-7 absolute sm:right-20 right-3' />
-              </div>
+
             </div>
           </div>
         </div>
@@ -328,10 +367,11 @@ export default function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${back}), linear-gradient(180deg, rgba(0, 43, 92, 0.8) 0%, #002B5C 43.05%, #002B5C 100%)`
+            backgroundColor: 'rgba(0, 5, 15, 0.85)',
+            backgroundImage: `url(${back})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left center',
           }}
-
-
         ></div>
 
         {/* Content on top of background */}
@@ -366,7 +406,7 @@ export default function About() {
         {/* Carousel Section */}
         <div className="relative flex items-center justify-center py-8 z-10  w-full overflow-hidden">
           <div ref={carouselRef3} className="flex overflow-x-scroll no-scrollbar space-x-6">
-            {Services.map((service, index) => (
+            {reviews.map((review, index) => (
               <div
                 key={index}
                 className="sm:max-w-[40%] w-[95%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
@@ -375,16 +415,16 @@ export default function About() {
                 {/* Card content */}
                 <div className="flex w-full justify-between items-center">
                   <div className='flex items-center gap-3'>
-                    <IoPerson className='h-8 w-8' />
+                    <img src={Profile} alt="Profile" className='rounded-full h-11 sm:h-16 md:h-14' />
                     <div>
-                      <h1 className='text-gray-400 font-bold text-xl'>Name</h1>
-                      <p className='text-sm text-gray-300'>Description</p>
+                      <h1 className='text-black font-bold text-xl'>{review.name}</h1>
+                      <p className='text-sm text-black'>{review.designation}</p>
                     </div>
                   </div>
-                  <h3 className="text-gray-300 font-bold text-4xl mb-2">Logo</h3>
+                  <img src={img_11} className='h-9 sm:h-16 md:h-12' alt="" />
                 </div>
                 {/* Star Ratings */}
-                <div className='flex m-3'>
+                <div className='flex m-3 text-yellow-600'>
                   <RiStarSFill />
                   <RiStarSFill />
                   <RiStarSFill />
@@ -393,25 +433,26 @@ export default function About() {
                 </div>
                 {/* Service Description */}
                 <div>
-                  <p className="text-gray-700 mb-4">{service.description}</p>
+                  <p className="text-gray-700 mb-4">{review.description}</p>
                 </div>
               </div>
+
             ))}
           </div>
         </div>
       </div>
-      
+
       {/* Why choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
         {/* Content Container */}
         <div className="relative z-10 w-full">
-          <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col md:flex-row gap-5 ">
             {/* Image Section */}
             <div className="md:w-1/3">
               <img src={image_9} alt="Why Choose Us" className="w-full h-auto object-cover" />
             </div>
             {/* Text Section */}
-            <div className="flex-1 m-5">
+            <div className="flex-1 m-5 ">
               <h1 className="text-lg md:text-xl text-yellow-600 sm:text-left text-center">
                 <span>
                   <img src={img3} className='h-4 inline-block mx-2 align-middle' alt="Icon" />
@@ -421,7 +462,7 @@ export default function About() {
               <h1 className="font-bold text-2xl md:text-3xl mt-2 sm:text-left text-center">
                 Why You Choose Our Services
               </h1>
-              <p className="mt-4 text-sm md:text-md pb-6 sm:text-left text-center">
+              <p className="mt-4 text-md md:text-lg pb-6 sm:text-left text-center">
                 It has survived not only five centuries, but also the leap into type setting, remaining essentially unchanged. It was popularised.
               </p>
               {/* Grid Layout for Features */}
@@ -436,6 +477,9 @@ export default function About() {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div>
+                <img src={img_12} alt="" className='absolute top-0 right-0 h-10 sm:h-20 md:h-20  ' />
               </div>
             </div>
           </div>
