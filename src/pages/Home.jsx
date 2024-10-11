@@ -2,13 +2,10 @@ import React from 'react';
 import image_1 from "../assets/Group_1171278049.png";
 import Carousel from "../components/Carousel"
 import image_2 from "../assets/Group1171277977.png"
-import img_3 from "../assets/image_3.png"
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
-import Vector2 from "../assets/Vector2.svg"
 import img_11 from "../assets/Group1171277409.svg"
-import frame1 from "../assets/Frame1.png"
 import img_12 from "../assets/image2.png"
 import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
 import { FaPhoneAlt } from "react-icons/fa";
@@ -16,7 +13,6 @@ import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
 import { MdEmail } from "react-icons/md";
 import img3 from "../assets/img3.png"
 import { MdLocationPin } from "react-icons/md";
-import { IoPerson } from "react-icons/io5";
 import image_4 from "../assets/Group_1171277398.png"
 import image_5 from "../assets/Group_1171277395.png"
 import { RiStarSFill } from "react-icons/ri";
@@ -30,6 +26,9 @@ import img5 from "../assets/img5.png"
 import img6 from "../assets/img6.png"
 import img7 from "../assets/img7.png"
 import img8 from "../assets/Vector.svg"
+import Button from '../components/Button';
+import { Link } from 'react-router-dom';
+import Contact from './Contact';
 
 
 const services = [
@@ -140,10 +139,48 @@ const image = [
 ]
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
 
   const carouselRef2 = useRef(null);
   const carouselRef3 = useRef(null);
-  const carouselRef4 = useRef(null);
+  const [sliderPositions, setSliderPositions] = useState(beforeAfter.map(() => 50)); // Initialize positions for each card
+  const [isDragging, setIsDragging] = useState(null); // Track which card is being dragged
+  const sliderRef = useRef([]);
+
+  const handleMouseDown = (index) => {
+    setIsDragging(index);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(null);
+  };
+
+  const handleMouseMove = (e, index) => {
+    if (isDragging !== index) return;
+
+    const sliderRect = sliderRef.current[index].getBoundingClientRect();
+    const newPosition = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
+
+    if (newPosition >= 0 && newPosition <= 100) {
+      const newSliderPositions = [...sliderPositions];
+      newSliderPositions[index] = newPosition; // Update the specific card's slider position
+      setSliderPositions(newSliderPositions);
+    }
+  };
+
+  const handleTouchMove = (e, index) => {
+    if (isDragging !== index) return;
+
+    const touch = e.touches[0];
+    const sliderRect = sliderRef.current[index].getBoundingClientRect();
+    const newPosition = ((touch.clientX - sliderRect.left) / sliderRect.width) * 100;
+
+    if (newPosition >= 0 && newPosition <= 100) {
+      const newSliderPositions = [...sliderPositions];
+      newSliderPositions[index] = newPosition; // Update the specific card's slider position
+      setSliderPositions(newSliderPositions);
+    }
+  };
 
   const scrollLeft2 = () => {
     carouselRef2.current.scrollBy({ left: -420, behavior: "smooth" });
@@ -166,11 +203,11 @@ export default function Home() {
   const scrollRight4 = () => {
     carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
   };
+  const carouselRef4 = useRef(null);
   return (
     <>
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
-        {/* Image Container */}
         <div className='flex flex-grow items-center justify-center w-full sm:h-auto h-full'>
           <img
             src={image_1}
@@ -178,64 +215,44 @@ export default function Home() {
             alt=""
           />
         </div>
+        
 
-        {/* Text Container */}
-        <div className='flex flex-col justify-end sm:absolute top-7 sm:top-10 md:top-6 left-7 sm:w-full sm:justify-start'>
-          <h1 className='font-bold text-md sm:text-2xl md:text-3xl lg:text-4xl sm:px-9 sm:py-9 py-16 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
-            <span className='text-yellow-600'>30 Years</span> of Expertise <br /> in Premium Electrical <br /> Solutions
-          </h1>
+        <div className='flex flex-col justify-end sm:absolute top-5 sm:top-10 md:top-5 left-7 sm:w-full sm:justify-start'>
+          <div className='absolute top-9'>
+            <h1 className='font-bold text-md sm:text-3xl md:text-2xl sm:max-w-[50%] lg:text-4xl sm:px-9 sm:py-9 pl-3 sm:relative absolute top-0 sm:top-0 animate-text-slide'>
+              <span className='text-yellow-600'>30 Years</span> of Expertise in Premium Electrical  Solutions
+            </h1>
 
-          <div className='sm:w-[50%] md:w-[50%] px-9 pb-4 animate-text-slide relative'>
-            <h3 className='text-sm sm:text-base md:text-md lg:text-xl sm:ml-3 border-l-2 border-yellow-600 pl-3'>
-              Providing top-tier electrical services for residential, commercial, and industrial clients in Mumbai. Let us power your spaces with precision and trust.
-            </h3>
-          </div>
-
-          <div className='px-9 py-5'>
-            <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-              {/* Button Text */}
-              <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                Get Quote
-              </span>
-
-              {/* Arrow with circular background */}
-              <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                <FaArrowRight className="text-black" />
-              </span>
-
-              {/* Expanding circular background from the arrow */}
-              <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-            </button>
+            <div className='sm:px-9 px-5 py-5 mt-16 md:mt-2 sm:mt-8 animate-text-slide'>
+              <Link to={'/services'}>
+                <Button text={"Get Quote"} />
+              </Link>
+            </div>
           </div>
         </div>
-
       </div>
 
       <Carousel />
 
       {/* About Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Background Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundColor: 'rgba(0, 20, 50, 0.85)', // Darker blue with 85% opacity
+            backgroundColor: 'rgba(10, 20, 30, 0.85)',
             backgroundImage: `url(${back})`,
             backgroundSize: 'cover',
             backgroundPosition: 'left center',
           }}
         ></div>
 
-        {/* Content Layer */}
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5">
-            {/* Left: Image Block with responsive size adjustments */}
             <div className="min-w-[40%] md:min-w-[30%] lg:min-w-[25%] flex-shrink-0">
               <img src={image_2} alt="About Us Image"
                 className="w-full h-auto object-cover sm:h-60 md:h-72 lg:h-96" />
             </div>
 
-            {/* Right: Text Block */}
             <div className="flex-1 m-4 pt-5">
               <h1 className="text-white text-lg md:text-xl flex items-center gap-x-2">
                 <span>
@@ -249,22 +266,9 @@ export default function Home() {
               <p className="mt-4 text-white text-md sm:text-lg md:text-md pb-6">
                 For over 30 years, Star Electrician Services has set the standard for excellence in the electrical industry. Our work goes beyond wires and circuits; we create environments that function seamlessly. Whether its lighting a home or powering an industrial complex, our solutions are tailored for those who expect nothing but the best. Trusted, tested, and built to last.
               </p>
-
-              {/* Button with hover effect */}
-              <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-                {/* Button Text */}
-                <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                  Learn more
-                </span>
-
-                {/* Arrow with circular background */}
-                <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                  <FaArrowRight className="text-black" />
-                </span>
-
-                {/* Expanding circular background from the arrow */}
-                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-300 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-              </button>
+              <Link to={'/about'}>
+                <Button text={"Learn More"} />
+              </Link>
             </div>
           </div>
         </div>
@@ -305,13 +309,13 @@ export default function Home() {
                 onClick={scrollLeft2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
-                <FaArrowLeft /> {/* Left Arrow */}
+                <FaArrowLeft />
               </button>
               <button
                 onClick={scrollRight2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
-                <FaArrowRight /> {/* Right Arrow */}
+                <FaArrowRight />
               </button>
             </div>
 
@@ -325,27 +329,27 @@ export default function Home() {
                 key={index}
                 className="sm:max-w-[45%] w-[90%] m-2 min-h-[11rem] my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
               >
-                <div className="relative">
-                  <img src={service.img} alt="Image" className="w-full h-auto rounded-lg" />
+                <Link to={'/projects'}>
 
-                  {/* Responsive arrow positioned at the edge of the top right corner */}
-                  <p className="text-white absolute right-5 top-5 bg-yellow-600 rounded-full flex items-center justify-center"
-                    style={{
-                      transform: 'translate(50%, -50%)',
-                      padding: '0.5rem', // Base padding
-                      width: '2rem', // Base size
-                      height: '2rem' // Base size
-                    }}>
-                    <GoArrowUpRight className="text-lg sm:text-xl md:text-2xl" /> {/* Responsive arrow size */}
-                  </p>
-                </div>
+                  <div className="relative">
+                    <img src={service.img} alt="Image" className="w-full h-auto rounded-lg" />
 
-                <div className="absolute text-white bottom-8 m-3 px-3">
-                  <h1 className="sm:text-2xl text-lg font-bold">heading</h1>
-                  <p className="text-sm">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp
-                  </p>
-                </div>
+                    {/* Responsive arrow positioned at the edge of the top right corner */}
+                    <p className="text-white absolute sm:right-6 right-2 sm:top-6 top-2 bg-yellow-600 rounded-full flex items-center justify-center sm:p-4 md:p-2 p-2 md:right-4 md:top-4 "
+                      style={{
+                        transform: 'translate(50%, -50%)',
+                      }}>
+                      <GoArrowUpRight className="text-lg sm:text-xl md:text-2xl" />
+                    </p>
+                  </div>
+
+                  <div className="absolute text-white bottom-8 m-3 px-3">
+                    <h1 className="sm:text-2xl text-lg font-bold">heading</h1>
+                    <p className="text-sm">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp
+                    </p>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -433,7 +437,7 @@ export default function Home() {
       </div>
 
       {/* Before & After */}
-      <div>
+      <div className=''>
         <div className='sm:flex  justify-center mt-5 items-center flex-col'>
           <div className='sm:flex items-center w-full justify-center relative flex-col'>
             <div className="flex  justify-center ">
@@ -473,45 +477,70 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center py-8">
+        <div className="relative flex items-center justify-center py-8 ">
           <div
+            className="flex overflow-x-auto space-x-4 scrollbar-hide"
+            style={{ scrollSnapType: 'x mandatory', userSelect: 'none' }}
             ref={carouselRef4}
-            className="flex overflow-x-auto no-scrollbar space-x-6"
           >
             {beforeAfter.map((item, index) => (
               index % 2 === 0 && (
                 <div
                   key={index}
-                  className="sm:max-w-[45%] w-[100%] border m-2 my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-200"
-                  style={{ "border-radius": "10px" }}
+                  className="sm:max-w-[45%] w-[100%] flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-200"
+                  style={{ borderRadius: '10px' }}
                 >
-                  <div className='relative flex items-center'>
+                  <div
+                    className="relative flex items-center"
+                    ref={(el) => (sliderRef.current[index] = el)} // Set ref for each card
+                    onMouseMove={(e) => handleMouseMove(e, index)}
+                    onTouchMove={(e) => handleTouchMove(e, index)}
+                    onMouseUp={handleMouseUp}
+                    onTouchEnd={handleMouseUp}
+                  >
                     {/* Before Image */}
-                    <div className='flex-1 m-1 overflow-hidden rounded-lg'>
+                    <div className="flex-1 m-1 overflow-hidden rounded-lg relative">
                       <img
-                        className='w-full h-[300px] object-cover rounded-lg'
+                        className="w-full h-[300px] object-cover rounded-lg"
                         src={item.img}
                         alt={`Before ${index}`}
-                        style={{ "border-radius": "10px" }}
+                        style={{ borderRadius: '10px', userSelect: 'none', pointerEvents: 'none' }}
                       />
-                    </div>
 
-                    {/* Text Between Images */}
-                    <div className='absolute rounded-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm  text-white bg-yellow-600 py-3 px-2 '>
-                      <p className=''>Drag</p>
-                    </div>
+                      {/* After Image */}
+                      {beforeAfter[index + 1] && (
+                        <div
+                          className="absolute top-0 left-0 h-full overflow-hidden rounded-lg"
+                          style={{
+                            width: `${sliderPositions[index]}%`, // Use the individual slider position
+                            transition: isDragging === index ? 'none' : 'width 0.2s ease',
+                            userSelect: 'none',
+                          }}
+                        >
+                          <img
+                            className="w-full h-[300px] object-cover rounded-lg"
+                            src={beforeAfter[index + 1].img}
+                            alt={`After ${index + 1}`}
+                            style={{ borderRadius: '10px', pointerEvents: 'none' }}
+                          />
+                        </div>
+                      )}
 
-                    {/* After Image */}
-                    {beforeAfter[index + 1] && (
-                      <div className='flex-1 m-1 overflow-hidden rounded-lg'>
-                        <img
-                          className='w-full h-[300px] object-cover rounded-lg'
-                          src={beforeAfter[index + 1].img}
-                          alt={`After ${index + 1}`}
-                          style={{ "border-radius": "10px" }}
-                        />
+                      {/* Drag Button */}
+                      <div
+                        className="absolute rounded-full bg-yellow-600 flex justify-center items-center cursor-pointer z-10 p-2"
+                        style={{
+                          left: `calc(${sliderPositions[index]}% - 16px)`, // Adjust drag button based on slider position
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          userSelect: 'none',
+                        }}
+                        onMouseDown={() => handleMouseDown(index)}
+                        onTouchStart={() => handleMouseDown(index)}
+                      >
+                        <span className="text-white">Drag</span> {/* Button icon */}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               )
@@ -647,78 +676,7 @@ export default function Home() {
       </div>
 
       {/* form */}
-      <div className='flex flex-col sm:flex-row bg-gray-100 sm:m-5 sm:mx-7 p-4 rounded-[20px] overflow-hidden shadow-lg'>
-        {/* Left Section */}
-        <div className='flex-1 relative sm:mr-4 mb-6 sm:mb-0 p-4'>
-          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left mb-2">Get In Touch With Us!</h1>
-          <p className="text-sm md:text-base text-center sm:text-left mb-2">
-            Need Electrical Services or have a project in mind? We are here to help! Reach out to us for a free consultation and let us bring your electrical vision to life.
-          </p>
-          <div className="flex flex-col items-center sm:items-start space-y-2 mb-4">
-            <p className="flex items-center space-x-2 text-yellow-700"><MdEmail /><span className='text-black'>email@example.com</span></p>
-            <p className="flex items-center space-x-2 text-yellow-700"><FaPhoneAlt /><span className='text-black'>+1234567890</span></p>
-            <p className="flex items-center space-x-2 text-yellow-700"><MdLocationPin /><span className='text-black'>123 Main St, City</span></p>
-          </div>
-
-          {/* Image at the bottom */}
-          <div className='lg:block hidden'>
-            <img src={img5} alt="Image" className='lg:h-32 h-0 rounded-full bg-transparent mt-2' /> {/* Reduced margin-top for spacing */}
-          </div>
-        </div>
-
-        {/* Right Section (Form) */}
-        <div className='flex-1 mt-4 sm:mt-0 w-full sm:max-w-lg p-4'>
-          <form className='relative rounded-md p-4 w-full'> {/* Reduced padding for the form */}
-            <div className='mb-2'>
-              <label className="block font-medium mb-1">How Can We Help You?</label>
-              <input type="text" style={{ borderRadius: "10px" }} placeholder='Enter...' className='w-full p-2 bg-white rounded-md outline-none' />
-            </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'> {/* Reduced gap for inputs */}
-              <div>
-                <label className="block font-medium mb-1">Full Name</label>
-                <input type="text" style={{ borderRadius: "10px" }} placeholder='Name...' className='w-full p-2 bg-white rounded-md outline-none' />
-              </div>
-              <div>
-                <label className="block font-medium mb-1">Email Address</label>
-                <input type="text" style={{ borderRadius: "10px" }} placeholder='Email...' className='w-full p-2 bg-white rounded-md outline-none' />
-              </div>
-            </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2'> {/* Reduced gap for inputs */}
-              <div>
-                <label className="block font-medium mb-1">Country</label>
-                <input type="text" style={{ borderRadius: "10px" }} placeholder='Country...' className='w-full p-2 bg-white rounded-md outline-none' />
-              </div>
-              <div>
-                <label className="block font-medium mb-1">Phone Number</label>
-                <input type="text" style={{ borderRadius: "10px" }} placeholder='Phone Number...' className='w-full p-2 bg-white rounded-md outline-none' />
-              </div>
-            </div>
-            <div className='mt-2'>
-              <label className="block font-medium mb-1">Message</label>
-              <textarea style={{ borderRadius: "10px" }} className='w-full p-2 bg-white rounded-md outline-none' placeholder='Drop a Message...' rows="4"></textarea>
-            </div>
-            <div className='m-4'>
-
-              <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-                {/* Button Text */}
-                <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                  Submit
-                </span>
-
-                {/* Arrow with circular background */}
-                <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                  <FaArrowRight className="text-black" />
-                </span>
-
-                {/* Expanding circular background from the arrow */}
-                <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-              </button>
-            </div>
-
-          </form>
-        </div>
-      </div>
-
+     <Contact/>
 
     </>
   );

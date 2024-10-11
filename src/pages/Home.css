@@ -59,4 +59,13 @@
   .animate-text-slide {
     animation: textSlide 1s ease-out forwards;
   }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+  }
   

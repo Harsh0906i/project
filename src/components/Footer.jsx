@@ -4,6 +4,7 @@ import TransparentLogo from "../assets/Group1171277362.png"
 import background from "../assets/7f9534e6d290e490bd2ddbc9513f00ad.jpeg"
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
+import { Link } from "react-router-dom"
 import { FaFacebook } from "react-icons/fa";
 import { LiaLinkedinIn } from "react-icons/lia";
 
@@ -22,28 +23,35 @@ export default function Footer() {
 
             <div className='sm:text-center flex flex-col mt-4 items-center justify-center'>
                 <div className='sm:max-w-[50%] w-full sm:mx-auto px-4'>
-                    <p className="text-sm sm:text-md md:text-base text-center">The most quality services by subtle craftmens, Diam id semper tellus. Est aliquam sit est ac. Felis diam nunc nibh blandit risus ndrerit sed consectetur quis leo on the praesent in Rakar.</p>
+                    <p className="text-sm sm:text-md md:text-base text-center">The most quality services by subtle craftmens, Diam id semper tellus. Est aliquam sit est ac. Felis diam nunc nibh blandit risus ndrerit sed consectetur quis leo on the praesent in Rakar.</p>
                 </div>
 
                 {/* Navigation Links */}
                 <div className='sm:flex sm:justify-center py-6 sm:items-center sm:text-center grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-6 flex-wrap w-full p-4'>
                     <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">Home <span>|</span></p>
+                        <Link to={'/'} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <p className="text-xs sm:text-sm">Home <span>|</span></p>
+                        </Link>
                     </div>
                     <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">About <span>|</span></p>
+                        <Link to={'/about'} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <p className="text-xs sm:text-sm">About <span>|</span></p>
+                        </Link>
                     </div>
                     <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">Services <span>|</span></p>
+                        <Link to={'/services'} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <p className="text-xs sm:text-sm">Services <span>|</span></p>
+                        </Link>
                     </div>
                     <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">Blog <span>|</span></p>
+                        <Link to={'/blog'} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <p className="text-xs sm:text-sm">Blog <span>|</span></p>
+                        </Link>
                     </div>
                     <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">Projects <span>|</span></p>
-                    </div>
-                    <div className='flex justify-center'>
-                        <p className="text-xs sm:text-sm">Contact</p>
+                        <Link to={'/projects'} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <p className="text-xs sm:text-sm">Projects <span>|</span></p>
+                        </Link>
                     </div>
                 </div>
 

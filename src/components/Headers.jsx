@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/Logo.jpeg"
+import Button from './Button';
 
 export default function Headers() {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +10,13 @@ export default function Headers() {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    };
+
+    const scrollToContactForm = () => {
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -41,23 +49,9 @@ export default function Headers() {
 
                 {/* Flex container for button and hamburger menu */}
                 <div className="flex items-center sm:ml-4">
-                    {/* Get Quote Button (always visible) */}
-                    <Link to="/contact"> {/* Add a link to your contact page if applicable */}
-                        <button className="relative overflow-hidden bg-yellow-600 text-white font-semibold py-0 px-0 pl-4 rounded-full group flex items-center justify-between border-4 border-transparent transition-all duration-300 ease-in-out hover:border-yellow-500">
-                            {/* Button Text */}
-                            <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-                                Contact us
-                            </span>
-
-                            {/* Arrow with circular background */}
-                            <span className="relative z-10 bg-white px-4 py-3 ml-2 rounded-full transition-transform duration-400 ease-in-out flex items-center justify-center">
-                                <FaArrowRight className="text-black" />
-                            </span>
-
-                            {/* Expanding circular background from the arrow */}
-                            <span className="absolute top-1/2 right-0 w-12 h-12 bg-white rounded-full transform -translate-x-2/4 -translate-y-2/4 transition-transform duration-500 ease-in-out scale-0 group-hover:scale-[10] origin-right"></span>
-                        </button>
-                    </Link>
+                    <button onClick={scrollToContactForm}>
+                        <Button text={"Contact us"} />
+                    </button>
 
                     {/* Hamburger Menu Button */}
                     <button onClick={toggleMenu} className="text-slate-700 focus:outline-none ml-2 sm:hidden">
