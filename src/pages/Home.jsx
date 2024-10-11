@@ -140,21 +140,30 @@ const image = [
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-
   const carouselRef2 = useRef(null);
   const carouselRef3 = useRef(null);
   const [sliderPositions, setSliderPositions] = useState(beforeAfter.map(() => 50)); // Initialize positions for each card
   const [isDragging, setIsDragging] = useState(null); // Track which card is being dragged
   const sliderRef = useRef([]);
+  const [isCarouselLocked, setIsCarouselLocked] = useState(false); // Ensure you have this state defined
 
-  const handleMouseDown = (index) => {
+  // Function to handle mouse down event
+  const handleMouseDown = (e, index) => {
+    e.preventDefault(); // Prevent default actions
+    e.stopPropagation(); // Prevent carousel movement
     setIsDragging(index);
+    setIsCarouselLocked(true); // Lock the carousel
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(null);
+  // Function to handle touch start event
+  const handleTouchStart = (e, index) => {
+    e.preventDefault(); // Prevent default actions
+    e.stopPropagation(); // Prevent carousel movement
+    setIsDragging(index);
+    setIsCarouselLocked(true); // Lock the carousel
   };
 
+  // Function to handle mouse move event
   const handleMouseMove = (e, index) => {
     if (isDragging !== index) return;
 
@@ -168,6 +177,7 @@ export default function Home() {
     }
   };
 
+  // Function to handle touch move event
   const handleTouchMove = (e, index) => {
     if (isDragging !== index) return;
 
@@ -181,6 +191,47 @@ export default function Home() {
       setSliderPositions(newSliderPositions);
     }
   };
+
+  // Function to handle mouse up event
+  const handleMouseUp = () => {
+    setIsDragging(null);
+    setIsCarouselLocked(false); // Unlock the carousel
+  };
+
+  // Use Effect for global touch handling
+  React.useEffect(() => {
+    const handleTouchMoveGlobal = (e) => {
+      sliderRef.current.forEach((_, index) => {
+        if (isDragging === index) {
+          handleTouchMove(e, index);
+        }
+      });
+    };
+
+    if (isDragging !== null) {
+      document.addEventListener('touchmove', handleTouchMoveGlobal, { passive: false });
+      document.addEventListener('touchend', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('touchmove', handleTouchMoveGlobal);
+      document.removeEventListener('touchend', handleMouseUp);
+    };
+  }, [isDragging]);
+
+  // Global mouse handling
+  React.useEffect(() => {
+    if (isDragging !== null) {
+      const handleMouseMoveGlobal = (e) => handleMouseMove(e, isDragging);
+      document.addEventListener('mousemove', handleMouseMoveGlobal);
+      document.addEventListener('mouseup', handleMouseUp);
+
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMoveGlobal);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isDragging]);
 
   const scrollLeft2 = () => {
     carouselRef2.current.scrollBy({ left: -420, behavior: "smooth" });
@@ -197,15 +248,22 @@ export default function Home() {
     carouselRef3.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   const scrollLeft4 = () => {
-    carouselRef4.current.scrollBy({ left: -420, behavior: "smooth" });
+    if (!isCarouselLocked) {
+      carouselRef4.current.scrollBy({ left: -420, behavior: "smooth" });
+    }
   };
 
   const scrollRight4 = () => {
-    carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
+    if (!isCarouselLocked) {
+      carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
+    }
   };
   const carouselRef4 = useRef(null);
   return (
     <>
+
+      {/* Hero Section */}
+
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
         <div className='flex flex-grow items-center justify-center w-full sm:h-auto h-full'>
@@ -215,7 +273,7 @@ export default function Home() {
             alt=""
           />
         </div>
-        
+
 
         <div className='flex flex-col justify-end sm:absolute top-5 sm:top-10 md:top-5 left-7 sm:w-full sm:justify-start'>
           <div className='absolute top-9'>
@@ -530,16 +588,22 @@ export default function Home() {
                       <div
                         className="absolute rounded-full bg-yellow-600 flex justify-center items-center cursor-pointer z-10 p-2"
                         style={{
-                          left: `calc(${sliderPositions[index]}% - 16px)`, // Adjust drag button based on slider position
+                          left: `calc(${sliderPositions[index]}% - 16px)`,
                           top: '50%',
                           transform: 'translateY(-50%)',
                           userSelect: 'none',
                         }}
-                        onMouseDown={() => handleMouseDown(index)}
-                        onTouchStart={() => handleMouseDown(index)}
+                        onMouseDown={(e) => handleMouseDown(e, index)} // Pass event here
+                        onTouchStart={(e) => {
+                          e.preventDefault(); // Prevent default actions (like scrolling)
+                          e.stopPropagation(); // Prevent carousel movement
+                          handleTouchStart(e, index); // Call touch start
+                        }}
                       >
                         <span className="text-white">Drag</span> {/* Button icon */}
                       </div>
+
+
                     </div>
                   </div>
                 </div>
@@ -547,7 +611,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
       </div>
 
       {/* Testimonial */}
@@ -676,8 +739,7 @@ export default function Home() {
       </div>
 
       {/* form */}
-     <Contact/>
-
+      <Contact />
     </>
   );
 }

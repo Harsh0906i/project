@@ -7,6 +7,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
 import img_12 from "../assets/image2.png"
 import { MdEmail } from "react-icons/md";
+import { Link } from 'react-router-dom';
 import { MdLocationPin } from "react-icons/md";
 import img1 from "../assets/img1.png"
 import img_11 from "../assets/Group1171277409.svg"
@@ -193,9 +194,11 @@ export default function Services() {
                   <p className="text-gray-700 mb-4">{service.description}</p>
                 </div>
                 <div className="mt-auto">
+                  <Link to={'/projects'}>
                   <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
                     Learn More
                   </button>
+                  </Link>
                 </div>
               </div>
             ))}

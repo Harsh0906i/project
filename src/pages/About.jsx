@@ -27,6 +27,7 @@ import frame from "../assets/Frame.png"
 import img8 from "../assets/Vector.svg"
 import img4 from "../assets/img4.png"
 import Contact from './Contact';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -285,9 +286,11 @@ export default function About() {
                   <p className="text-gray-700 mb-4">{service.description}</p>
                 </div>
                 <div className="mt-auto">
-                  <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
-                    Learn More
-                  </button>
+                  <Link to={'/projects'}>
+                    <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
+                      Learn More
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -330,13 +333,13 @@ export default function About() {
                 onClick={scrollLeft2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
-                <FaArrowLeft /> {/* Left Arrow */}
+                <FaArrowLeft />
               </button>
               <button
                 onClick={scrollRight2}
                 className="z-10 p-2 hover:text-white hover:bg-yellow-600 text-black border rounded-full mx-1"
               >
-                <FaArrowRight /> {/* Right Arrow */}
+                <FaArrowRight />
               </button>
             </div>
 
@@ -350,27 +353,27 @@ export default function About() {
                 key={index}
                 className="sm:max-w-[45%] w-[90%] m-2 min-h-[11rem] my-3 flex-shrink-0 relative bg-white p-4 rounded-lg shadow-lg border-gray-400 flex flex-col justify-between"
               >
-                <div className="relative">
-                  <img src={service.img} alt="Image" className="w-full h-auto rounded-lg" />
+                <Link to={'/projects'}>
 
-                  {/* Responsive arrow positioned at the edge of the top right corner */}
-                  <p className="text-white absolute right-5 top-5 bg-yellow-600 rounded-full flex items-center justify-center"
-                    style={{
-                      transform: 'translate(50%, -50%)',
-                      padding: '0.5rem', // Base padding
-                      width: '2rem', // Base size
-                      height: '2rem' // Base size
-                    }}>
-                    <GoArrowUpRight className="text-lg sm:text-xl md:text-2xl" /> {/* Responsive arrow size */}
-                  </p>
-                </div>
+                  <div className="relative">
+                    <img src={service.img} alt="Image" className="w-full h-auto rounded-lg" />
 
-                <div className="absolute text-white bottom-8 m-3 px-3">
-                  <h1 className="sm:text-2xl text-lg font-bold">heading</h1>
-                  <p className="text-sm">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp
-                  </p>
-                </div>
+                    {/* Responsive arrow positioned at the edge of the top right corner */}
+                    <p className="text-white absolute sm:right-6 right-2 sm:top-6 top-2 bg-yellow-600 rounded-full flex items-center justify-center sm:p-4 md:p-2 p-2 md:right-4 md:top-4 "
+                      style={{
+                        transform: 'translate(50%, -50%)',
+                      }}>
+                      <GoArrowUpRight className="text-lg sm:text-xl md:text-2xl" />
+                    </p>
+                  </div>
+
+                  <div className="absolute text-white bottom-8 m-3 px-3">
+                    <h1 className="sm:text-2xl text-lg font-bold">heading</h1>
+                    <p className="text-sm">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, non ullam? Et, cum id! Aut libero, persp
+                    </p>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -503,7 +506,7 @@ export default function About() {
       </div>
 
       {/* form */}
-     <Contact/>
+      <Contact />
     </>
 
   );
