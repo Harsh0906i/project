@@ -12,6 +12,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
 import { MdEmail } from "react-icons/md";
 import img3 from "../assets/img3.png"
+import Modal from "../components/Modal"
 import { MdLocationPin } from "react-icons/md";
 import image_4 from "../assets/Group_1171277398.png"
 import image_5 from "../assets/Group_1171277395.png"
@@ -22,7 +23,6 @@ import image_9 from "../assets/Rectangle34624693.png"
 import image_10 from "../assets/Group1171278047.png"
 import { GoArrowUpRight } from "react-icons/go";
 import image_8 from "../assets/img.png"
-import img5 from "../assets/img5.png"
 import img6 from "../assets/img6.png"
 import img7 from "../assets/img7.png"
 import img8 from "../assets/Vector.svg"
@@ -120,118 +120,31 @@ const beforeAfter = [
     img: image_7
   },
 ]
-const image = [
-  {
-    img: image_10
-  },
-  {
-    img: image_10
-  },
-  {
-    img: image_10
-  },
-  {
-    img: image_10
-  },
-  {
-    img: image_10
-  },
-]
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
   const carouselRef2 = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const carouselRef3 = useRef(null);
-  const [sliderPositions, setSliderPositions] = useState(beforeAfter.map(() => 50)); // Initialize positions for each card
-  const [isDragging, setIsDragging] = useState(null); // Track which card is being dragged
+  const [beforeImageUrl, setBeforeImageUrl] = useState('');
+  const [afterImageUrl, setAfterImageUrl] = useState('');
   const sliderRef = useRef([]);
-  const [isCarouselLocked, setIsCarouselLocked] = useState(false); // Ensure you have this state defined
 
-  // Function to handle mouse down event
-  const handleMouseDown = (e, index) => {
-    e.preventDefault(); // Prevent default actions
-    e.stopPropagation(); // Prevent carousel movement
-    setIsDragging(index);
-    setIsCarouselLocked(true); // Lock the carousel
+  const openModal = (beforeImg, afterImg) => {
+    setBeforeImageUrl(beforeImg);
+    setAfterImageUrl(afterImg);
+    setIsModalOpen(true);
   };
 
-  // Function to handle touch start event
-  const handleTouchStart = (e, index) => {
-    e.preventDefault(); // Prevent default actions
-    e.stopPropagation(); // Prevent carousel movement
-    setIsDragging(index);
-    setIsCarouselLocked(true); // Lock the carousel
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
-  // Function to handle mouse move event
-  const handleMouseMove = (e, index) => {
-    if (isDragging !== index) return;
-
-    const sliderRect = sliderRef.current[index].getBoundingClientRect();
-    const newPosition = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
-
-    if (newPosition >= 0 && newPosition <= 100) {
-      const newSliderPositions = [...sliderPositions];
-      newSliderPositions[index] = newPosition; // Update the specific card's slider position
-      setSliderPositions(newSliderPositions);
+  const scrollToContactForm = () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  // Function to handle touch move event
-  const handleTouchMove = (e, index) => {
-    if (isDragging !== index) return;
-
-    const touch = e.touches[0];
-    const sliderRect = sliderRef.current[index].getBoundingClientRect();
-    const newPosition = ((touch.clientX - sliderRect.left) / sliderRect.width) * 100;
-
-    if (newPosition >= 0 && newPosition <= 100) {
-      const newSliderPositions = [...sliderPositions];
-      newSliderPositions[index] = newPosition; // Update the specific card's slider position
-      setSliderPositions(newSliderPositions);
-    }
-  };
-
-  // Function to handle mouse up event
-  const handleMouseUp = () => {
-    setIsDragging(null);
-    setIsCarouselLocked(false); // Unlock the carousel
-  };
-
-  // Use Effect for global touch handling
-  React.useEffect(() => {
-    const handleTouchMoveGlobal = (e) => {
-      sliderRef.current.forEach((_, index) => {
-        if (isDragging === index) {
-          handleTouchMove(e, index);
-        }
-      });
-    };
-
-    if (isDragging !== null) {
-      document.addEventListener('touchmove', handleTouchMoveGlobal, { passive: false });
-      document.addEventListener('touchend', handleMouseUp);
-    }
-
-    return () => {
-      document.removeEventListener('touchmove', handleTouchMoveGlobal);
-      document.removeEventListener('touchend', handleMouseUp);
-    };
-  }, [isDragging]);
-
-  // Global mouse handling
-  React.useEffect(() => {
-    if (isDragging !== null) {
-      const handleMouseMoveGlobal = (e) => handleMouseMove(e, isDragging);
-      document.addEventListener('mousemove', handleMouseMoveGlobal);
-      document.addEventListener('mouseup', handleMouseUp);
-
-      return () => {
-        document.removeEventListener('mousemove', handleMouseMoveGlobal);
-        document.removeEventListener('mouseup', handleMouseUp);
-      };
-    }
-  }, [isDragging]);
+};
 
   const scrollLeft2 = () => {
     carouselRef2.current.scrollBy({ left: -420, behavior: "smooth" });
@@ -248,15 +161,11 @@ export default function Home() {
     carouselRef3.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   const scrollLeft4 = () => {
-    if (!isCarouselLocked) {
-      carouselRef4.current.scrollBy({ left: -420, behavior: "smooth" });
-    }
+    carouselRef4.current.scrollBy({ left: -420, behavior: "smooth" });
   };
 
   const scrollRight4 = () => {
-    if (!isCarouselLocked) {
-      carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
-    }
+    carouselRef4.current.scrollBy({ left: 420, behavior: "smooth" });
   };
   const carouselRef4 = useRef(null);
   return (
@@ -282,9 +191,10 @@ export default function Home() {
             </h1>
 
             <div className='sm:px-9 px-5 py-5 mt-16 md:mt-2 sm:mt-8 animate-text-slide'>
-              <Link to={'/services'}>
+              <button onClick={scrollToContactForm}>
                 <Button text={"Get Quote"} />
-              </Link>
+              </button>
+              
             </div>
           </div>
         </div>
@@ -535,10 +445,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center py-8 ">
+        <div className="relative flex items-center justify-center py-8">
           <div
             className="flex overflow-x-auto space-x-4 scrollbar-hide"
-            style={{ scrollSnapType: 'x mandatory', userSelect: 'none' }}
             ref={carouselRef4}
           >
             {beforeAfter.map((item, index) => (
@@ -550,28 +459,26 @@ export default function Home() {
                 >
                   <div
                     className="relative flex items-center"
-                    ref={(el) => (sliderRef.current[index] = el)} // Set ref for each card
-                    onMouseMove={(e) => handleMouseMove(e, index)}
-                    onTouchMove={(e) => handleTouchMove(e, index)}
-                    onMouseUp={handleMouseUp}
-                    onTouchEnd={handleMouseUp}
+
                   >
-                    {/* Before Image */}
-                    <div className="flex-1 m-1 overflow-hidden rounded-lg relative">
+                    <div
+                      className="flex-1 m-1 overflow-hidden rounded-lg relative cursor-pointer"
+                      onClick={() =>
+                        openModal(item.img, beforeAfter[index + 1]?.img)
+                      }
+                    >
                       <img
                         className="w-full h-[300px] object-cover rounded-lg"
                         src={item.img}
-                        alt={`Before ${index}`}
                         style={{ borderRadius: '10px', userSelect: 'none', pointerEvents: 'none' }}
                       />
 
-                      {/* After Image */}
                       {beforeAfter[index + 1] && (
                         <div
-                          className="absolute top-0 left-0 h-full overflow-hidden rounded-lg"
+                          className="absolute top-0 left-0 h-full overflow-hidden rounded-lg cursor-pointer"
                           style={{
-                            width: `${sliderPositions[index]}%`, // Use the individual slider position
-                            transition: isDragging === index ? 'none' : 'width 0.2s ease',
+                            width: `${sliderRef.current[index]?.sliderPosition || 50}%`,
+                            transition: 'width 0.2s ease',
                             userSelect: 'none',
                           }}
                         >
@@ -588,28 +495,28 @@ export default function Home() {
                       <div
                         className="absolute rounded-full bg-yellow-600 flex justify-center items-center cursor-pointer z-10 p-2"
                         style={{
-                          left: `calc(${sliderPositions[index]}% - 16px)`,
+                          left: `calc(${sliderRef.current[index]?.sliderPosition || 50}% - 16px)`,
                           top: '50%',
                           transform: 'translateY(-50%)',
                           userSelect: 'none',
                         }}
-                        onMouseDown={(e) => handleMouseDown(e, index)} // Pass event here
-                        onTouchStart={(e) => {
-                          e.preventDefault(); // Prevent default actions (like scrolling)
-                          e.stopPropagation(); // Prevent carousel movement
-                          handleTouchStart(e, index); // Call touch start
-                        }}
                       >
-                        <span className="text-white">Drag</span> {/* Button icon */}
+                        <span className="text-white">Click</span>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
               )
             ))}
           </div>
+
+          {/* Modal Component */}
+          <Modal
+            isOpen={isModalOpen}
+            beforeImageUrl={beforeImageUrl}
+            afterImageUrl={afterImageUrl}
+            closeModal={closeModal}
+          />
         </div>
       </div>
 

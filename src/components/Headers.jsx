@@ -6,7 +6,7 @@ import Button from './Button';
 
 export default function Headers() {
     const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation(); // Get the current location
+    const location = useLocation(); 
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);

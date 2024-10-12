@@ -5,11 +5,16 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Contact() {
     const [result, setResult] = React.useState(null);
-    setTimeout(() => {
+
+    React.useEffect(() => {
         if (result) {
-            setResult(null)
+            const timer = setTimeout(() => {
+                setResult(null);
+            }, 3000);
+            return () => clearTimeout(timer); // Clear the timer if the component unmounts
         }
-    }, 3000)
+    }, [result]);
+
     const [formData, setFormData] = React.useState({
         service: "",
         name: "",
@@ -20,40 +25,42 @@ export default function Contact() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === "phone" && value.length > 10) {
-            return; 
+            return;
         }
         setFormData({ ...formData, [name]: value });
     };
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
-        const data = new FormData();
+        setResult({ message: "Sending....", status: "info" });
 
+        const data = new FormData();
         data.append("access_key", "3f18b1e8-3252-4c99-b6c8-4ef7db60b5aa");
         data.append("service", formData.service);
         data.append("name", formData.name);
         data.append("email", formData.email);
         data.append("phone", formData.phone);
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: data
-        });
-
-        const resultData = await response.json();
-
-        if (resultData.success) {
-            setResult("Form Submitted Successfully");
-            setFormData({
-                service: "",
-                name: "",
-                email: "",
-                phone: ""
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: data
             });
-        } else {
-            console.log("Error", resultData);
-            setResult(resultData.message);
+            const resultData = await response.json();
+
+            if (resultData.success) {
+                setResult({ message: "Thank you for contacting us! We will reach you soon.", status: "success" });
+                setFormData({
+                    service: "",
+                    name: "",
+                    email: "",
+                    phone: ""
+                });
+            } else {
+                setResult({ message: resultData.message, status: "error" });
+            }
+        } catch (error) {
+            setResult({ message: "Submission failed. Please try again later.", status: "error" });
         }
     };
 
@@ -140,7 +147,18 @@ export default function Contact() {
                         <Button text={"Submit"} />
                     </div>
                 </form>
-                {result && <p className="text-center text-red-500">{result}</p>} {/* Display result message */}
+
+                {/* Display result message */}
+                {result && (
+                    <p
+                        className={`text-center ${result.status === "success"
+                                ? "text-green-500"
+                                : "text-red-500"
+                            }`}
+                    >
+                        {result.message}
+                    </p>
+                )}
             </div>
         </div>
     );

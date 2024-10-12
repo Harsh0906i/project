@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef,useEffect,useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
 import ServiceImg from "../assets/6e3137160373e0ae7bc191d154576de8.png"
@@ -122,15 +122,15 @@ export default function Services() {
       {/* Hero section */}
 
       <div className="relative overflow-hidden sm:m-6 m-2" style={{ "borderRadius": "30px" }}>
-      {isLoading && (
+        {isLoading && (
           <div className="absolute inset-0 flex justify-center items-center bg-white rounded-lg">
             <div className="animate-pulse h-full w-full flex justify-center items-center">
               <div className=" bg-slate-500 h-full w-full"></div>
             </div>
           </div>
         )}
-        <img src={ServiceImg} 
-          onLoad={() => setIsLoading(false)} 
+        <img src={ServiceImg}
+          onLoad={() => setIsLoading(false)}
           alt=""
           className={`w-full h-auto rounded-lg ${isLoading ? 'hidden' : 'block'}`} />
         <div
@@ -146,6 +146,7 @@ export default function Services() {
         </div>
       </div>
       {/* Services */}
+
       <div className="relative">
         <div className='sm:flex justify-center mt-5 items-center flex-col relative z-10'>
           <div className='sm:flex items-center justify-center flex-col'>
@@ -195,9 +196,9 @@ export default function Services() {
                 </div>
                 <div className="mt-auto">
                   <Link to={'/projects'}>
-                  <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
-                    Learn More
-                  </button>
+                    <button className="text-yellow-600 font-semibold border border-yellow-600 px-4 py-2 rounded-full">
+                      Learn More
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -207,6 +208,7 @@ export default function Services() {
       </div>
 
       {/* Testimonial */}
+      
       <div className='sm:flex justify-center mt-5 items-center flex-col relative overflow-hidden'>
         {/* Background image with gradient */}
         <div
@@ -332,8 +334,8 @@ export default function Services() {
       </div>
 
       {/* form */}
-     
-     <Contact/>
+
+      <Contact />
 
     </>
   )
