@@ -20,7 +20,7 @@ import Button from '../components/Button';
 import img5 from "../assets/img5.png"
 import img8 from "../assets/Vector.svg"
 import img4 from "../assets/img4.png"
-import Contact from './Contact';
+import Contact from '../components/Contact';
 
 // content
 const Service = [
@@ -120,7 +120,6 @@ export default function Services() {
   return (
     <>
       {/* Hero section */}
-
       <div className="relative overflow-hidden sm:m-6 m-2" style={{ "borderRadius": "30px" }}>
         {isLoading && (
           <div className="absolute inset-0 flex justify-center items-center bg-white rounded-lg">
@@ -145,8 +144,8 @@ export default function Services() {
           <h1 className="text-white sm:text-4xl font-bold">Our Services</h1>
         </div>
       </div>
-      {/* Services */}
 
+      {/* Services */}
       <div className="relative">
         <div className='sm:flex justify-center mt-5 items-center flex-col relative z-10'>
           <div className='sm:flex items-center justify-center flex-col'>
@@ -208,7 +207,6 @@ export default function Services() {
       </div>
 
       {/* Testimonial */}
-      
       <div className='sm:flex justify-center mt-5 items-center flex-col relative overflow-hidden'>
         {/* Background image with gradient */}
         <div
@@ -334,7 +332,6 @@ export default function Services() {
       </div>
 
       {/* form */}
-
       <Contact />
 
     </>

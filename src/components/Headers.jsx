@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/Logo.jpeg"
 import Button from './Button';
 
@@ -28,7 +28,6 @@ export default function Headers() {
 
                 <div className="flex-grow" /> {/* Creates space */}
 
-                {/* Navigation Links (always visible on large screens) */}
                 <ul className="hidden sm:flex gap-5 pr-6">
                     <Link to={'/'} className={`text-slate-700 hover:underline ${location.pathname === '/' ? 'font-semibold text-yellow-500' : ''}`}>
                         <li>Home</li>
@@ -47,20 +46,17 @@ export default function Headers() {
                     </Link>
                 </ul>
 
-                {/* Flex container for button and hamburger menu */}
                 <div className="flex items-center sm:ml-4">
                     <button onClick={scrollToContactForm}>
                         <Button text={"Contact us"} />
                     </button>
 
-                    {/* Hamburger Menu Button */}
                     <button onClick={toggleMenu} className="text-slate-700 focus:outline-none ml-2 sm:hidden">
                         {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
                     </button>
                 </div>
             </div>
 
-            {/* Responsive menu for small screens */}
             <ul className={`flex flex-col bg-gray-50 border-t border-gray-200 ${isOpen ? 'block' : 'hidden'} sm:hidden`}>
                 <Link to={'/'} onClick={() => setIsOpen(false)} className={`p-3 text-slate-700 hover:underline ${location.pathname === '/' ? 'font-semibold text-yellow-500' : ''}`}>
                     <li>Home</li>

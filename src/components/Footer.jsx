@@ -1,5 +1,4 @@
 import React from 'react'
-// import Logo from "../assets/Logo.jpeg"
 import TransparentLogo from "../assets/Group1171277362.png"
 import background from "../assets/7f9534e6d290e490bd2ddbc9513f00ad.jpeg"
 import { FaXTwitter } from "react-icons/fa6";

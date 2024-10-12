@@ -1,17 +1,11 @@
 import React from 'react';
-import { useRef, useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import "./Home.css"
 import ProjectImg from "../assets/bc4866c353e17696039f73c5a944f28a.jpeg"
-import { FaPhoneAlt } from "react-icons/fa";
 import WorkerImage from "../assets/a730c25fa4af6f6307633ab614a4040c.jpeg"
-import { MdEmail } from "react-icons/md";
-import { MdLocationPin } from "react-icons/md";
-import img5 from "../assets/img5.png"
-import Button from '../components/Button';
-import Contact from './Contact';
+import Contact from '../components/Contact';
 
-
+// content
 const Service = [
   {
     title: "Air Conditioning",

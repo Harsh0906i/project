@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/Button";
+import Button from "./Button";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
@@ -35,7 +35,7 @@ export default function Contact() {
         setResult({ message: "Sending....", status: "info" });
 
         const data = new FormData();
-        data.append("access_key", "3f18b1e8-3252-4c99-b6c8-4ef7db60b5aa");
+        data.append("access_key", import.meta.env.VITE_API_KEY); // <---------------apikey
         data.append("service", formData.service);
         data.append("name", formData.name);
         data.append("email", formData.email);

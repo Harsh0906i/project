@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import img1 from "../assets/img1.png"
-import img2 from "../assets/img2.png"
 import img3 from "../assets/img3.png"
 import img4 from "../assets/img4.png"
 
+// content
 const services = [
   {
     title: "Residential Electrical Solutions",
@@ -110,7 +110,6 @@ const Carousel = () => {
             </div>
           </div>
 
-          {/* Button container for arrows */}
           <div className="flex absolute right-5 sm:bottom-0  justify-center items-center sm:mt-0 sm:ml-auto sm:justify-end flex-row sm:gap-2 ">
             <button
               onClick={scrollLeft}

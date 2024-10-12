@@ -2,25 +2,21 @@ import React from 'react';
 import image_1 from "../assets/Group_1171278049.png";
 import Carousel from "../components/Carousel"
 import image_2 from "../assets/Group1171277977.png"
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
 import img_11 from "../assets/Group1171277409.svg"
 import img_12 from "../assets/image2.png"
 import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
-import { FaPhoneAlt } from "react-icons/fa";
 import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
-import { MdEmail } from "react-icons/md";
 import img3 from "../assets/img3.png"
 import Modal from "../components/Modal"
-import { MdLocationPin } from "react-icons/md";
 import image_4 from "../assets/Group_1171277398.png"
 import image_5 from "../assets/Group_1171277395.png"
 import { RiStarSFill } from "react-icons/ri";
 import image_6 from "../assets/apartment-with-doorways-before-after-renovation4.png"
 import image_7 from "../assets/apartment-with-doorways-before-after-renovation2-1.png"
 import image_9 from "../assets/Rectangle34624693.png"
-import image_10 from "../assets/Group1171278047.png"
 import { GoArrowUpRight } from "react-icons/go";
 import image_8 from "../assets/img.png"
 import img6 from "../assets/img6.png"
@@ -28,9 +24,9 @@ import img7 from "../assets/img7.png"
 import img8 from "../assets/Vector.svg"
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
-import Contact from './Contact';
+import Contact from '../components/Contact';
 
-
+// content
 const services = [
   {
     img: image_4
@@ -142,9 +138,9 @@ export default function Home() {
   const scrollToContactForm = () => {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.scrollIntoView({ behavior: 'smooth' });
+      contactForm.scrollIntoView({ behavior: 'smooth' });
     }
-};
+  };
 
   const scrollLeft2 = () => {
     carouselRef2.current.scrollBy({ left: -420, behavior: "smooth" });
@@ -172,7 +168,6 @@ export default function Home() {
     <>
 
       {/* Hero Section */}
-
       <div className='flex flex-col relative sm:flex-row mb-5 overflow-hidden'>
 
         <div className='flex flex-grow items-center justify-center w-full sm:h-auto h-full'>
@@ -194,7 +189,7 @@ export default function Home() {
               <button onClick={scrollToContactForm}>
                 <Button text={"Get Quote"} />
               </button>
-              
+
             </div>
           </div>
         </div>
@@ -329,11 +324,10 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundColor: 'rgba(0, 20, 50, 0.85)', // Darker blue with 85% opacity
+            backgroundColor: 'rgba(0, 20, 50, 0.85)',
             backgroundImage: `url(${back})`,
             backgroundSize: 'cover',
             backgroundPosition: 'left center',
-            // minHeight: '100vh', // Ensure enough height to show the background
           }}
         ></div>
         <div className="relative z-10 w-full">
@@ -491,7 +485,6 @@ export default function Home() {
                         </div>
                       )}
 
-                      {/* Drag Button */}
                       <div
                         className="absolute rounded-full bg-yellow-600 flex justify-center items-center cursor-pointer z-10 p-2"
                         style={{
@@ -510,7 +503,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Modal Component */}
           <Modal
             isOpen={isModalOpen}
             beforeImageUrl={beforeImageUrl}
@@ -522,7 +514,6 @@ export default function Home() {
 
       {/* Testimonial */}
       <div className='sm:flex justify-center mt-5 items-center flex-col relative overflow-hidden'>
-        {/* Background image with gradient */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -533,9 +524,7 @@ export default function Home() {
           }}
         ></div>
 
-        {/* Content on top of background */}
         <div className='sm:flex w-full items-center justify-center relative z-10 flex-col'>
-          {/* Heading section */}
           <div className="flex justify-center m-2">
             <h1 className=" text-white text-lg md:text-xl flex items-center gap-x-2"><span><img src={img8} alt="Logo" /></span>Testimonial</h1>
           </div>
@@ -545,7 +534,6 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Arrow navigation */}
           <div className="flex sm:absolute sm:right-5 sm:bottom-0 my-2 justify-center items-center mt-4 sm:mt-0 sm:ml-auto sm:justify-end flex-row gap-2 z-50">
             <button
               onClick={scrollLeft3}
@@ -562,7 +550,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Carousel Section */}
         <div className="relative flex items-center justify-center py-8 z-10  w-full overflow-hidden">
           <div ref={carouselRef3} className="flex overflow-x-scroll no-scrollbar space-x-6">
             {Services.map((service, index) => (
@@ -571,7 +558,6 @@ export default function Home() {
                 className="sm:max-w-[40%] w-[95%] m-2 min-h-11 my-3 flex-shrink-0 relative bg-white p-6 rounded-lg shadow-lg border flex flex-col justify-between"
                 style={{ borderRadius: "20px" }}
               >
-                {/* Card content */}
                 <div className="flex w-full justify-between items-center">
                   <div className='flex items-center gap-3'>
                     <img src={Profile} alt="Profile" className='rounded-full h-11 sm:h-16 md:h-14' />
@@ -582,7 +568,6 @@ export default function Home() {
                   </div>
                   <img src={img_11} className='h-9 sm:h-16 md:h-12' alt="" />
                 </div>
-                {/* Star Ratings */}
                 <div className='flex m-3 text-yellow-600'>
                   <RiStarSFill />
                   <RiStarSFill />
@@ -590,7 +575,6 @@ export default function Home() {
                   <RiStarSFill />
                   <RiStarSFill />
                 </div>
-                {/* Service Description */}
                 <div>
                   <p className="text-gray-700 mb-4">{service.description}</p>
                 </div>
@@ -603,14 +587,11 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <div className="relative flex flex-col md:flex-row mt-4 gap-5 p-4 py-6">
-        {/* Content Container */}
         <div className="relative z-10 w-full">
           <div className="flex flex-col md:flex-row gap-5 ">
-            {/* Image Section */}
             <div className="md:w-1/3">
               <img src={image_9} alt="Why Choose Us" className="w-full h-auto object-cover" />
             </div>
-            {/* Text Section */}
             <div className="flex-1 m-5 ">
               <h1 className="text-lg md:text-xl text-yellow-600 sm:text-left text-center">
                 <span>
@@ -624,7 +605,6 @@ export default function Home() {
               <p className="mt-4 text-md md:text-lg pb-6 sm:text-left text-center">
                 It has survived not only five centuries, but also the leap into type setting, remaining essentially unchanged. It was popularised.
               </p>
-              {/* Grid Layout for Features */}
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mx-3'>
                 {[...Array(4)].map((_, index) => (
                   <div key={index} className='flex items-center shadow-md p-3'>

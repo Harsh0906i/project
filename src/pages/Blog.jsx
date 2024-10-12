@@ -12,7 +12,7 @@ import Button from '../components/Button';
 
 import heroImage from "../assets/af8f3f202e4d296460aae61dfdac6f57.jpeg"
 import img5 from "../assets/img5.png"
-import Contact from './Contact';
+import Contact from '../components/Contact';
 
 // content
 const image = [
@@ -141,9 +141,9 @@ export default function () {
                   )}
                   <img
                     src={service.img}
-                    onLoad={() => setIsLoading(false)} // Set loading to false when the image loads
+                    onLoad={() => setIsLoading(false)} 
                     style={{ borderRadius: '20px 20px 0 0' }}
-                    className={`w-full h-auto object-cover rounded-lg ${isLoading ? 'hidden' : 'block'}`} // Hide image while loading
+                    className={`w-full h-auto object-cover rounded-lg ${isLoading ? 'hidden' : 'block'}`} 
                   />
                 </div>
 

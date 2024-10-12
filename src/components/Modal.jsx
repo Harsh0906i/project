@@ -1,4 +1,3 @@
-// Modal.js
 import React from 'react';
 
 const Modal = ({ isOpen, beforeImageUrl, afterImageUrl, closeModal }) => {
@@ -16,7 +15,6 @@ const Modal = ({ isOpen, beforeImageUrl, afterImageUrl, closeModal }) => {
           </div>
 
           <div className="mt-2">
-            {/* Display Before and After images */}
             <img
               src={beforeImageUrl}
               alt="Before"

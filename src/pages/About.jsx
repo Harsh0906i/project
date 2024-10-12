@@ -5,12 +5,8 @@ import { useRef, useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "./Home.css"
 import vetorLogo from "../assets/vectorlogo.svg"
-import { FaPhoneAlt } from "react-icons/fa";
 import Profile from "../assets/6720923c03aff1b12526b66db1ccde15.jpeg"
 import img_12 from "../assets/image2.png"
-import { MdEmail } from "react-icons/md";
-import Button from '../components/Button';
-import { MdLocationPin } from "react-icons/md";
 import img1 from "../assets/img1.png"
 import img_11 from "../assets/Group1171277409.svg"
 import back from "../assets/b487b3891c8ec22ec989c2fa2828464e.jpeg"
@@ -21,14 +17,13 @@ import { RiStarSFill } from "react-icons/ri";
 import image_9 from "../assets/Rectangle34624693.png"
 import { GoArrowUpRight } from "react-icons/go";
 import image_8 from "../assets/img.png"
-import img5 from "../assets/img5.png"
 import img6 from "../assets/img6.png"
 import frame from "../assets/Frame.png"
 import img8 from "../assets/Vector.svg"
 import img4 from "../assets/img4.png"
-import Contact from './Contact';
+import Contact from '../components/Contact';
 import { Link } from 'react-router-dom';
-
+// content
 const services = [
   {
     img: image_4
