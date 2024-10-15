@@ -18,7 +18,7 @@ export default function Headers() {
             contactForm.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
+ 
     return (
         <header className="bg-gray-50 shadow-lg">
             <div className="flex items-center max-w-6xl mx-auto p-3 justify-between">
